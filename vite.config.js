@@ -11,6 +11,9 @@ import { fileURLToPath } from 'node:url';
 
 // https://vite.dev/config/
 export default defineConfig({
+  // for github deployment
+  base: '/',
+  
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
