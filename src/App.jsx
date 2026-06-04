@@ -1,5 +1,14 @@
+import {} from '@/sections/Hero';
+
 function App() {
-  return <></>
+  return (
+    <div className='min-h-screen overflow-x-hidden'>
+      <Navbar />
+      <main>
+        <Hero />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
