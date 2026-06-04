@@ -1,5 +1,13 @@
 # satik37.github.io
 
+  _________       __  .__ __    _________________ 
+ /   _____/____ _/  |_|__|  | __\_____  \______  \
+ \_____  \\__  \\   __\  |  |/ /  _(__  <   /    /
+ /        \/ __ \|  | |  |    <  /       \ /    / 
+/_______  (____  /__| |__|__|_ \/______  //____/  
+        \/     \/             \/       \/         
+        
+
 This is the repository for my personal website – a developer portfolio built with **Vite**, **React** and **Tailwind CSS**, deployed on **GitHub Pages**.
 
 > ⚠️ **Work in progress – full redesign in progress**  
