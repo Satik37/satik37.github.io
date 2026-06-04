@@ -30,8 +30,8 @@ This site is meant to be:
 ## Running the project locally
 
 **Requires**
-- [Node.js](https://nodejs.org/) installed (LTS version recommended)
-- [npm](https://www.npmjs.com/) (comes with Node)
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [npm](https://www.npmjs.com/)
 
 ---
 
