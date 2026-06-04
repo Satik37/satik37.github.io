@@ -3,7 +3,7 @@ import {} from '@/sections/Hero';
 function App() {
   return (
     <div className='min-h-screen overflow-x-hidden'>
-      <Navbar />
+      {/* <Navbar /> */}
       <main>
         <Hero />
       </main>
