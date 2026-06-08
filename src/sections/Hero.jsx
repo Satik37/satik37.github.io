@@ -1,5 +1,6 @@
 import { Button } from '@/components/Button';
 import { MessageSquareCode } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 
 export const Hero = () => {
@@ -64,8 +65,27 @@ export const Hero = () => {
                         </div>
 
                         {/* Social links */}
-                        <div>
-                            
+                        <div className='flex items-center gap-4 animate-fade-in animation-delay-400'>
+                            <span className='text-sm text-muted-foreground'>
+                                Follow me: 
+                            </span>
+                            {[
+                                { icon: FaGithub, href: 'https://github.com/Satik37' },
+                                { icon: FaLinkedin, href: 'http://www.linkedin.com/in/saturnas-costantini-miliauskas-satik' },
+                                { icon: FaInstagram, href: '#' },
+                            ].map((social, idx) => {
+                                const Icon = social.icon;
+                                
+                                return (
+                                    <a
+                                        key={idx}
+                                        href={social.href}
+                                        className='p-2 rounded-full glass hover:bg-primary/10   hover:text-primary transition-all duration-300'
+                                    >
+                                        <Icon className='w-6 h-6'/>
+                                    </a>
+                                );
+                            })}
                         </div>
                     </div>
                     {/* Right Column - Pic */}
