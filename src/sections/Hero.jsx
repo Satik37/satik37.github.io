@@ -37,13 +37,13 @@ export const Hero = () => {
                             </span>
                         </div>
                         {/* Headline */}
-                        <div>
-                            <h1>
+                        <div className='space-y-4'>
+                            <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in'>
                                 Turning digital chaos
                                 <br/>
                                 into<span className='text-primary glow-text'> clean systems</span>.
                             </h1>
-                           <p className='text-lg text-muted-foreground max-w-lg'>
+                           <p className='text-lg text-muted-foreground max-w-lg animate-fade-in'>
                             Hi, I'm Saturnas Costantini Miliauskas,
                             <br/>
                             I turn unstructured ideas into systems with clear boundaries, solid performance, and honest UX.
