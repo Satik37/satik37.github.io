@@ -35,7 +35,7 @@ Some sections may be incomplete, under revision, or visually inconsistent while 
 
 - **Frontend:** React
 - **Build tool:** Vite
-- **Styling:** Tailwind CSS v4
+- **Styling:** Tailwind CSS v4, Lucide for React
 - **Hosting:** GitHub Pages
 - **Deployment:** GitHub Actions
 
