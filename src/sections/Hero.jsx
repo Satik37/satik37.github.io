@@ -83,9 +83,19 @@ export const Hero = () => {
                                         target='_blank'
                                         rel='noopener noreferrer'
                                         arial-label={social.href}
-                                        className='p-2 rounded-full glass hover:bg-primary/10   hover:text-primary transition-all duration-300'
+                                        title={social.label}
+                                        // className='p-2 rounded-full glass hover:bg-primary/10   hover:text-primary transition-all duration-300'
+                                        className='group inline-flex items-center justify-center rounded-full glass p-3 text-muted-foreground border border-white/10
+                                            transition-all duration-300 ease-out 
+                                            hover:-translate-y-1 hover:scale-105 hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(32,178,166,0.18)]
+                                            active:scale-95
+                                            focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
                                     >
-                                        <Icon className='w-6 h-6'/>
+                                        {/* <Icon className='w-6 h-6'/> */}
+                                        <Icon
+                                            className='w-5 h-5 transition-transform duration-300 group-hover:rotate-6'
+                                            aria-hidden='true'
+                                        />
                                     </a>
                                 );
                             })}
