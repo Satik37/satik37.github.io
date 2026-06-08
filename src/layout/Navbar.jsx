@@ -29,7 +29,7 @@ export const Navbar = () => {
                     </div>
                 </div>
 
-                {/* CallToAction Button */}
+                {/* CTA Button */}
                 <div className='hidden md:block'>
                     <Button size="sm">Contact Me</Button>
                 </div>
