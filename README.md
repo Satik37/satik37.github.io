@@ -43,8 +43,8 @@ Some sections may be incomplete, under revision, or visually inconsistent while 
 
 This rebuild is helping me work on:
 
-- cleaner frontend structure
-- better visual consistency
+- clean frontend structure
+- visual consistency
 - layout experimentation
 - project presentation
 - accessibility and performance improvements
@@ -59,7 +59,7 @@ This rebuild is helping me work on:
 ### Install dependencies
 
 ```bash
-npm install
+npm i
 ```
 
 ### Start the development server
@@ -83,12 +83,12 @@ Every push to the `main` branch:
 
 ## Roadmap
 
-- new hero section with updated copy and design
+- new hero section
 - improved project presentation
-- “About” section with background and skills
 - better accessibility and performance
 - multilingual content
 - more polished visual structure overall
+- outside of code
 
 ## Contact
 
