@@ -72,7 +72,7 @@ export const Hero = () => {
                             {[
                                 { icon: FaGithub, href: 'https://github.com/Satik37' },
                                 { icon: FaLinkedin, href: 'http://www.linkedin.com/in/saturnas-costantini-miliauskas-satik' },
-                                { icon: FaInstagram, href: '#' },
+                                { icon: FaInstagram, href: 'https://www.instagram.com/satik_37/' },
                             ].map((social, idx) => {
                                 const Icon = social.icon;
                                 
@@ -80,6 +80,9 @@ export const Hero = () => {
                                     <a
                                         key={idx}
                                         href={social.href}
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        arial-label={social.href}
                                         className='p-2 rounded-full glass hover:bg-primary/10   hover:text-primary transition-all duration-300'
                                     >
                                         <Icon className='w-6 h-6'/>
