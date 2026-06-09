@@ -3,6 +3,27 @@ import { MessageSquareCode } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 
+const skills = [
+    'JavaScript',
+    'TypeScript',
+    'React',
+    'Tailwind CSS',
+    'SCSS',
+    'CSS3',
+    'HTML5',
+    'Node.js',
+    'Moleculer',
+    'API REST',
+    'Postman',
+    'Mongodb',
+    'CouchDB',
+    'IBM Cloudant',
+    'Git',
+    'GitHub',
+    'GitHub Actions',
+    'GitLab',
+];
+
 export const Hero = () => {
     return (
         <section className='relative min-h-screen flex items-center overflow-hidden'>
@@ -128,7 +149,7 @@ export const Hero = () => {
                             />
                             <div className='relative glass rounded-3xl p-2 glow-border'>
                                 <img
-                                    src='/profile_photo1.png'
+                                    src='/profile_photo.png'
                                     alt='Saturnas C.M.'
                                     className='w-full aspect-ratio: 4/5 object-cover rounded-2xl'
                                 />
@@ -147,6 +168,22 @@ export const Hero = () => {
                                     <div className='text-xs uppercase tracking-wide text-muted-foreground'>&lt;currently building&gt;</div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Skills Section */}
+                <div className='mt-20 animate-fade-in animation=delay-600'>
+                    <p className='text-sm text-muted-foreground mb-6 text-center'>
+                        Technologies I work with
+                    </p>
+                    <div className='relative overflow-hidden'>
+                        <div className='flex animate-marquee'>
+                            {[...skills, ...skills].map((skill, index) => (
+                                <div key={index} className='shrink-0 px-8 py-4'>
+                                    <span className='text-xl font-semibold text-muted-foreground/50 hover:text-primary/70'>{skill}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
