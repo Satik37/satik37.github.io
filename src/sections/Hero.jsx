@@ -128,13 +128,24 @@ export const Hero = () => {
                             />
                             <div className='relative glass rounded-3xl p-2 glow-border'>
                                 <img
-                                    src='/profile_photo.png'
+                                    src='/profile_photo1.png'
                                     alt='Saturnas C.M.'
                                     className='w-full aspect-ratio: 4/5 object-cover rounded-2xl'
                                 />
 
                                 {/* Floating Badge */}
+                                <div className='absolute -bottom-4 right-4 glass rounded-xl px-4 py-3 animate-float'>
+                                    <div className='flex items-center gap-3'>
+                                        <div className='w-3 h-3 bg-primary rounded-full animate-pulse'/>
+                                        <span className='text-sm font-medium'>
+                                            Signal over noise
+                                        </span>
+                                    </div>
+                                </div>
                                 {/* Stats Badge */}
+                                <div className='absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500'>
+                                    <div className='text-xs uppercase tracking-wide text-muted-foreground'>&lt;currently building&gt;</div>
+                                </div>
                             </div>
                         </div>
                     </div>
