@@ -176,18 +176,20 @@ export const Hero = () => {
 
                 {/* Skills Section */}
                 <div className='mt-20 animate-fade-in animation-delay-600'>
-                    <p className='text-sm text-muted-foreground mb-6 text-center'>
-                        Technologies I work with
-                    </p>
-                    <div className='relative overflow-hidden'>
-                        <div className='flex animate-marquee'>
-                            {[...skills, ...skills].map((skill, index) => (
-                                <div key={index} className='shrink-0 px-8 py-4'>
-                                    <span className='text-xl font-semibold text-muted-foreground/50 hover:text-primary/70 transition-colors'>{skill}</span>
-                                </div>
-                            ))}
+                  <p className='text-sm text-muted-foreground mb-6 text-center'>
+                    Technologies I work with
+                  </p>                                        
+                  <div className='relative overflow-hidden'>
+                    <div className='marquee-track flex w-max min-w-max whitespace-nowrap'>
+                      {[...skills, ...skills].map((skill, index) => (
+                        <div key={index} className='flex-none px-8 py-4'>
+                          <span className='text-xl font-semibold text-muted-foreground/50 transition-colors hover:text-primary/70'>
+                            {skill}
+                          </span>
                         </div>
+                      ))}
                     </div>
+                  </div>
                 </div>
             </div>
 

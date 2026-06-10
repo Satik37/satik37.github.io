@@ -99,15 +99,22 @@
     }
   }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
   }
-  50% {
-    transform: translateY(-10px);
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
 }
+
+  .animate-marquee,
+  .marquee-track {
+    animation: marquee 66s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+  }
 
 @keyframes marquee {
   0% {
