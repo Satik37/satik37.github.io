@@ -55,16 +55,16 @@ export const About = () => {
 
                         <div className='space-y-4 text-muted-foreground animate-fade-in animation-delay-200'>
                             <p>
-                                Before moving into software development, I studied nursing, and that experience shaped me strongly. It taught me to stay calm in messy situations, to pay attention when details matter, and to think beyond the task in front of me to the person who will live with the outcome. I try to bring that same mindset into development: not just making something work, but making it understandable, maintainable and genuinely useful.
+                                Before moving into software development, I studied nursing, and that experience shaped me strongly. It taught me to stay calm in messy situations, to pay attention when details matter and to think beyond the task in front of me to the person who will live with the outcome. I try to bring that same mindset into development: not just making something work but making it understandable, maintainable and useful.
                             </p>
                             <p>
-                                I work mainly on frontend and mobile projects, with a strong interest in interfaces that feel clear, deliberate, and reliable. I enjoy taking things apart, understanding how and why they work, and then rebuilding them in a way that is cleaner, lighter and easier to grow over time.
+                                I prefer to work on frontend and mobile projects, with a deep interest in design, UI and UX. I enjoy taking things apart, understanding how and why they work and then rebuilding them in a way that is cleaner, lighter and easier to grow over time.
                             </p>
                             <p>
-                                I am still early in my path, but I take that seriously in a good way. I do not want to rush into sounding like more than I am. I want to keep learning, keep improving, and become the kind of developer people can trust to think clearly, work carefully and keep growing.
+                                I am still early in my path, but I take that seriously in a good way. I do not want to rush into sounding like more than I am. I want to keep learning, keep improving and become the kind of developer people can trust to think clearly, work carefully and keep growing.
                             </p>
                             <p>
-                                Outside of coding, I spend time painting miniatures and working on scale models, and I think that hobby says a lot about how I approach software too. It taught me patience, respect for detail, and the idea that good work is often a sum of small, careful decisions rather than one big flashy move. That is also how I learn: step by step, project by project, always trying to sharpen both my technical skills and my judgment.
+                                Outside of coding, I spend time painting miniatures and working on scale models. I think that this hobby says a lot about my approach to software as well. It taught me patience, respect for detail and the idea that good work is often a sum of small and careful decisions rather than one big flashy move. That is also how I learn: step by step, project by project, always trying to sharpen both my technical skills and my judgment.
                             </p>
                         </div>
 
