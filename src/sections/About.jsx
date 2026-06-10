@@ -54,28 +54,18 @@ export const About = () => {
                         </span>
                     </h2>
 
-                    <div>
+                    <div className='space-y-4 text-muted-foreground animate-fade-in animation-delay-200'>
                         <p>
-                            Before becoming a developer I studied nursing, so I'm used to messy situations, incomplete information, and people depending on you to stay calm and make the next right decision.
+                            Before moving into software development, I studied nursing, and that experience shaped me strongly. It taught me to stay calm in messy situations, to pay attention when details matter, and to think beyond the task in front of me to the person who will live with the outcome. I try to bring that same mindset into development: not just making something work, but making it understandable, maintainable, and genuinely useful.
                         </p>
                         <p>
-                            Now I do the same with software: I take unstructured ideas, noisy requirements, and half-broken legacy pieces, and turn them into clean, readable architecture with honest UX.
+                            I work mainly on frontend and mobile projects, with a strong interest in interfaces that feel clear, deliberate, and reliable. I enjoy taking things apart, understanding how and why they work, and then rebuilding them in a way that is cleaner, lighter, and easier to grow over time.
                         </p>
-                        <br/>
                         <p>
-                            I like to work on dark, modern interfaces in React and Tailwind. For mobile apps I prefer Flutter. There, I like to focus on small details like how a button moves or how a screen loads on bad network, can decide whether a product feels “cheap” or trustworthy.
+                            I am still early in my path, but I take that seriously in a good way. I do not want to rush into sounding like more than I am. I want to keep learning, keep improving, and become the kind of developer people can trust to think clearly, work carefully, and keep growing
                         </p>
-                        <br/>
-                        <p>    
-                            I like to read code slowly, understand what it's really doing, and then make it shorter and clearer instead of throwing another layer on top just to ship faster.
-                        </p>
-                        <br/>
                         <p>
-                            Performance matters to me, but not as an excuse to write cryptic code. I prefer a slightly slower function that everyone can understand and then iterating with real measurements instead of micro-optimizing blindly.
-                        </p>
-                        <br/>
-                        <p>
-                            In short, I'm a  developer who cares about how software behaves in real life, under pressure, with real users and with future developers who deserve a codebase that doesn't fight back.
+                            Outside of coding, I spend time painting miniatures and working on scale models, and I think that hobby says a lot about how I approach software too. It taught me patience, respect for detail, and the idea that good work is often a sum of small, careful decisions rather than one big flashy move. That is also how I learn: step by step, project by project, always trying to sharpen both my technical skills and my judgment.
                         </p>
                     </div>
                 </div>
