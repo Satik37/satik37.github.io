@@ -52,6 +52,11 @@
     border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
   }
 
+  .glass-navbar {
+    background: color-mix(in srgb, var(--color-surface) 70%, transparent);
+    backdrop-filter: blur(12px);
+  }
+
   .glow-text {
     text-shadow: 0 0 30px
       color-mix(in srgb, var(--color-primary) 50%, transparent);

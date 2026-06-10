@@ -6,10 +6,12 @@ import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 const skills = [
     'JavaScript',
     'TypeScript',
+    'Vue.js',
     'React',
     'Tailwind CSS',
     'SCSS',
     'CSS3',
+    'Vite', 
     'HTML5',
     'Node.js',
     'Moleculer',
