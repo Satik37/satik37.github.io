@@ -55,7 +55,7 @@ export const About = () => {
 
                         <div className='space-y-4 text-muted-foreground animate-fade-in animation-delay-200'>
                             <p>
-                                Before moving into software development, I studied nursing, and that experience shaped me strongly. It taught me to stay calm in messy situations, to pay attention when details matter, and to think beyond the task in front of me to the person who will live with the outcome. I try to bring that same mindset into development: not just making something work, but making it understandable, maintainable, and genuinely useful.
+                                Before moving into software development, I studied nursing, and that experience shaped me strongly. It taught me to stay calm in messy situations, to pay attention when details matter, and to think beyond the task in front of me to the person who will live with the outcome. I try to bring that same mindset into development: not just making something work, but making it understandable, maintainable and genuinely useful.
                             </p>
                             <p>
                                 I work mainly on frontend and mobile projects, with a strong interest in interfaces that feel clear, deliberate, and reliable. I enjoy taking things apart, understanding how and why they work, and then rebuilding them in a way that is cleaner, lighter and easier to grow over time.
