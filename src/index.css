@@ -110,7 +110,7 @@
 
   .animate-marquee,
   .marquee-track {
-    animation: marquee 66s linear infinite;
+    animation: marquee 73s linear infinite;
     will-change: transform;
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
