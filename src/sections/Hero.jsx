@@ -76,7 +76,7 @@ export const Hero = () => {
                             <br/>
                             I turn unstructured ideas into systems with clear boundaries, solid performance, and honest UX.
                             <br/>
-                            My code is structured, intentional, and designed to survive the chaos of real products.
+                            My code is structured, intentional and designed to survive the chaos of real products.
                             </p> 
                         </div>
                         {/* CTAs */}
