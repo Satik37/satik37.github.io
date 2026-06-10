@@ -1,30 +1,30 @@
-import { CodeXml } from 'lucide-react';
+import { CodeXml, LayoutGrid, Activity, MonitorUp, Brush } from 'lucide-react';
 
 const highlights = [
     {
         icon: CodeXml,
-        title: 'Clean, intentional code',
-        description: 'I like to understand code deeply, then refactor it into smaller, clearer pieces before adding new features, so the project stays maintainable over time.'
+        title: 'Clarity before complexity',
+        description: 'I try to make things easy to follow before making them more powerful, so features grow on top of clear structure instead of accidental chaos.'
     },
     {
-        icon: CodeXml,
-        title: 'Frontend with structure, UI and UX in mind',
-        description: 'I build interfaces that look modern but stay simple to use, focusing on clear layouts, predictable interactions, and readable component architecture (React + Tailwind).'
+        icon: LayoutGrid,
+        title: 'Interfaces people can trust',
+        description: 'I care about UX that feels honest and predictable: clear layouts, readable states, and interactions that do what users expect without friction.'
     },
     {
-        icon: CodeXml,
-        title: 'Mobile apps that feel native',
-        description: 'On mobile (Flutter), I care about smooth navigation, meaningful animations, and layouts that still work on small screens and unstable connections.'
+        icon: Activity,
+        title: 'Calm in messy systems',
+        description: 'I am comfortable working through unclear problems step by step, keeping attention on details without losing sight of the bigger picture.'
     },
     {
-        icon: CodeXml,
-        title: 'Performance as part of the design',
-        description: 'I treat performance as a design problem: measuring where time is spent, cutting unnecessary work, and keeping things fast without turning the code into an unreadable mess.'
+        icon: MonitorUp,
+        title: 'Growing through each project',
+        description: 'I treat every project as a chance to sharpen both technical skill and judgment, learning carefully and applying that progress to the next build.'
     },
     {
-        icon: CodeXml,
-        title: 'Always learning, always refactoring',
-        description: 'I use each project as a chance to learn a bit more about patterns, tooling, or testing, and then apply that knowledge to leave the codebase cleaner than I found it.'
+        icon: Brush,
+        title: 'Patience in the details',
+        description: 'Miniature painting taught me that good work comes from small deliberate decisions, and I bring that same patience into software.'
     },
 ];
 
@@ -74,9 +74,28 @@ export const About = () => {
                             </p>
                         </div>
                     </div>
-                </div>
-                <div>
+
                     {/* Right Column */}
+                    <div className='grid sm:grid-cols-2 gap-6'>
+                        {highlights.map((item, index) => (
+                            <div
+                                key={index}
+                                className='glass p-6 rounded-2xl animate-fade-in'
+                                style={{animationDelay: `${index * 100}ms`}}
+                            >
+                                <div className='w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 hover:bg-primary/20'>
+                                    <item.icon className='w-6 h-6 text-primary'/>
+                                </div>
+                                <h3 className='text-lg font-semibold mb-2'>
+                                    {item.title}
+                                </h3>
+                                <p className='text-sm text-muted-foreground'>
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
+
+                    </div>
                 </div>
             </div>
         </section>
