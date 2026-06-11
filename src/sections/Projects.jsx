@@ -97,19 +97,26 @@ export const Projects = () => {
                         </div>
 
                         {/* Project content */}
-                        <div>
-                            <div>
-                                <h3>
+                        <div className='p-6 space-y-4'>
+                            <div className='flex items-start justify-between'>
+                                <h3 className='text-xl font-semibold group-hover:text-primary transition-colors'>
                                     {project.title}
                                 </h3>
-                                <ArrowUpRight />
+                                <ArrowUpRight 
+                                    className='w-6 h-6
+                                        text-muted-foreground group-hover:text-primary
+                                        group-hover:translate-x-1
+                                        group-hover:-translate-y-1 transition all duration-700 ease-in-out'
+                                />
                             </div>
-                            <p>
+                            <p className='text-muted-foreground text-sm'>
                                 {project.description}
                             </p>
-                            <div>
+                            <div className='flex flex-wrap gap-2'>
                                 {project.tags.map((tag, tagIndex) => (
-                                    <span>{tag}</span>
+                                    <span className='px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-700'>
+                                        {tag}
+                                    </span>
                                 ))}
                             </div>
                         </div>
