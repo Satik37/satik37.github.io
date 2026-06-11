@@ -140,10 +140,19 @@ export const Projects = () => {
 
             {/* Vie all CTA */}
             <div className='text-center mt-12 animate-fade-in animation-delay-500'>
-                <AnimatedBorderButton>
-                    View All Projects
-                    <ArrowUpRight className='w-4 h-4 ml-2'/>
-                </AnimatedBorderButton>
+                <a
+                    href='https://github.com/Satik37?tab=repositories'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label='Open all GitHub repositories'
+                    title='View all projects on GitHub'
+                    className='inline-flex'
+                >
+                    <AnimatedBorderButton>
+                        View All Projects
+                        <ArrowUpRight className='w-4 h-4 ml-2'/>
+                    </AnimatedBorderButton>
+                </a>
             </div>
         </div>
     </section>
