@@ -1,5 +1,6 @@
 import { CircleFadingArrowUp, ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 
 const projects = [
     {
@@ -114,15 +115,25 @@ export const Projects = () => {
                             </p>
                             <div className='flex flex-wrap gap-2'>
                                 {project.tags.map((tag, tagIndex) => (
-                                    <span className='px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-700'>
+                                    <span
+                                        key={tagIndex}
+                                        className='px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-700'
+                                    >
                                         {tag}
                                     </span>
                                 ))}
                             </div>
                         </div>
-
                     </div>
                 ))}
+            </div>
+
+            {/* Vie all CTA */}
+            <div className='text-center mt-12 animate-fade-in animation-delay-500'>
+                <AnimatedBorderButton>
+                    View All Projects
+                    <ArrowUpRight className='w-4 h-4 ml-2'/>
+                </AnimatedBorderButton>
             </div>
         </div>
     </section>
