@@ -2,7 +2,7 @@ const projects = [
     {
         title: 'Noctis Aenigmata',
         description: 'Noctis Aenigmata is a small Flutter mobile game inspired by dark situational puzzles and short horror stories.',
-        image: '/projects/project1.png',
+        image: '/projects/project1.jpg',
         tags: ['Flutter', 'Android Studio', 'Dart'],
         link: '#',
         github: 'https://github.com/Satik37/noctis_aenigmata'
@@ -31,8 +31,47 @@ export const Projects = () => {
         </div>
         <div
             className='container mx-auto px-6 relative z-10'
-        >
+        >      
             {/* Section header */}
+            <div className='text-center mx-auto max-w-3xl mb-16'>
+                <span className='text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in'>
+                    Featured Work
+                </span>
+                <h2 className='text-4xl md:text-5xl font-serif font-normal  mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground'>
+                    Projects that turned and shaped scattered ideas into
+                    <br/>
+                    <span className='font-bold text-white'> concrete and clean systems.</span>
+                </h2>
+                <p className="text-muted-foreground animate-fade-in animation-delay-200 max-w-xl">
+                    A small selection of personal builds.
+                    <br/>
+                    Projects born from curiosity, where loose ideas turned into organized and readable code I actually enjoy working on.
+                </p>
+            </div>
+
+            {/* Projects grid */}
+            <div className='grid md:grid-cols-2 gap-8'>
+                {projects.map((project, index) => (
+                    <div
+                        key={index}
+                        className='group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1'
+                        style={{ animationDelay: `${(index + 1) * 100}ms` }}    
+                    >
+                        {/* Project image */}
+                        <div className='relative overflow-hidden aspect-video'>
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+                            />
+                            <div
+                                className='absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-60'
+                            />
+                        {/* Overlay links */}
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     </section>
 }
