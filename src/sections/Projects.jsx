@@ -1,10 +1,13 @@
+import { CircleFadingArrowUp } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
+
 const projects = [
     {
         title: 'Noctis Aenigmata',
         description: 'Noctis Aenigmata is a small Flutter mobile game inspired by dark situational puzzles and short horror stories.',
         image: '/projects/project1.jpg',
         tags: ['Flutter', 'Android Studio', 'Dart'],
-        link: '#',
+        link: 'https://github.com/Satik37/noctis_aenigmata',
         github: 'https://github.com/Satik37/noctis_aenigmata'
     },
     {
@@ -67,7 +70,30 @@ export const Projects = () => {
                             <div
                                 className='absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-60'
                             />
-                        {/* Overlay links */}
+                            {/* Overlay links */}
+                            <div
+                                className='absolute inset-0 flex items-center justify-center gap-4 bg-background/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500'>
+                                <a
+                                    href={project.link}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
+                                    aria-label={`Open ${project.title} live project`}
+                                    title='Live'
+                                >
+                                    <CircleFadingArrowUp className='w-6 h-6'/>
+                                </a>
+                                <a
+                                    href={project.github}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
+                                    aria-label={`Open ${project.title} GitHub project repository`}
+                                    title='GitHub'
+                                >
+                                    <FaGithub className='w-6 h-6'/>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 ))}
