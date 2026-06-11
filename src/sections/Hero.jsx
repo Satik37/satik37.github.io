@@ -142,7 +142,7 @@ export const Hero = () => {
                     {/* Right Column - Pic */}
                     <div className='relative animate-fade-in animation-delay-300'>
                         {/* Hero Image */}
-                        <div className='relative max-w-md mx-auto'>
+                        <div className='relative max-w-sm lg:max-w-md mx-auto'>
                             <div
                                 className='absolute inset-0
                                     rounded-3xl bg-linear-to-br
@@ -156,7 +156,7 @@ export const Hero = () => {
                                 <img
                                     src='/profile_2.png'
                                     alt='Saturnas C.M.'
-                                    className='w-full aspect-ratio: 4/5 object-cover rounded-2xl'
+                                    className='w-full aspect-ratio: 4/5 object-cover opacity-90 rounded-2xl'
                                 />
 
                                 {/* Floating Badge */}
