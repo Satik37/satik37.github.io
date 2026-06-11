@@ -140,6 +140,7 @@ export const Projects = () => {
 
             {/* Vie all CTA */}
             <div className='text-center mt-12 animate-fade-in animation-delay-500'>
+                {/* TODO: fix a */}
                 <a
                     href='https://github.com/Satik37?tab=repositories'
                     target='_blank'

@@ -154,7 +154,7 @@ export const Hero = () => {
                             />
                             <div className='relative glass rounded-3xl p-2 glow-border'>
                                 <img
-                                    src='/profile_photo.png'
+                                    src='/profile_2.png'
                                     alt='Saturnas C.M.'
                                     className='w-full aspect-ratio: 4/5 object-cover rounded-2xl'
                                 />
