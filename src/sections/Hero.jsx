@@ -142,7 +142,7 @@ export const Hero = () => {
                     {/* Right Column - Pic */}
                     <div className='relative animate-fade-in animation-delay-300'>
                         {/* Hero Image */}
-                        <div className='relative max-2-md mx-auto'>
+                        <div className='relative max-w-md mx-auto'>
                             <div
                                 className='absolute inset-0
                                     rounded-3xl bg-linear-to-br
