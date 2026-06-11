@@ -103,12 +103,22 @@ export const Projects = () => {
                                 <h3 className='text-xl font-semibold group-hover:text-primary transition-colors'>
                                     {project.title}
                                 </h3>
-                                <ArrowUpRight 
-                                    className='w-6 h-6
-                                        text-muted-foreground group-hover:text-primary
-                                        group-hover:translate-x-1
-                                        group-hover:-translate-y-1 transition all duration-700 ease-in-out'
-                                />
+                                <a
+                                    href={project.github}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    aria-label={`Open ${project.title} GitHub repository`}
+                                    title='GitHub repository'
+                                    className='inline-flex'
+                                >
+                                    <ArrowUpRight 
+                                        className='w-6 h-6
+                                            text-muted-foreground group-hover:text-primary
+                                            group-hover:translate-x-1 group-hover:-translate-y-1
+                                            transition-all duration-700 ease-in-out'
+                                        aria-hidden='true'
+                                    />
+                                </a>
                             </div>
                             <p className='text-muted-foreground text-sm'>
                                 {project.description}
