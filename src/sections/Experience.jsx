@@ -60,6 +60,9 @@ export const Experience = () => {
                 </div>
 
                 {/* Timeline */}
+                <div>
+                    
+                </div>
             </div>
         </section>
     )

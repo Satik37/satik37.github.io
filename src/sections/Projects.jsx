@@ -6,7 +6,7 @@ const projects = [
     {
         title: 'Noctis Aenigmata',
         description: 'Noctis Aenigmata is a small Flutter mobile game inspired by dark situational puzzles and short horror stories.',
-        image: '/projects/project1.jpg',
+        image: '/projects/project1.1.jpg',
         tags: ['Flutter', 'Android Studio', 'Dart'],
         link: 'https://github.com/Satik37/noctis_aenigmata',
         github: 'https://github.com/Satik37/noctis_aenigmata'
