@@ -1,4 +1,4 @@
-import { CircleFadingArrowUp } from 'lucide-react';
+import { CircleFadingArrowUp, ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 const projects = [
@@ -95,6 +95,25 @@ export const Projects = () => {
                                 </a>
                             </div>
                         </div>
+
+                        {/* Project content */}
+                        <div>
+                            <div>
+                                <h3>
+                                    {project.title}
+                                </h3>
+                                <ArrowUpRight />
+                            </div>
+                            <p>
+                                {project.description}
+                            </p>
+                            <div>
+                                {project.tags.map((tag, tagIndex) => (
+                                    <span>{tag}</span>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
                 ))}
             </div>
