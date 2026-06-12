@@ -60,8 +60,52 @@ export const Experience = () => {
                 </div>
 
                 {/* Timeline */}
-                <div>
-                    
+                <div className='relative'>
+                    <div className='timeline-glow absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary/70 via-primary/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(32,178,166,0.8)]'/>
+
+                    {/* Experience items */}
+                    <div className='space-y-12'>
+                        {experiences.map((exp, index) => (
+                            <div
+                                key={index}
+                                className='relative grid md:grid-cols-2 gap-8 animate-fade-in'
+                                style={{ animationDelay: `${(index + 1) * 100}ms` }}
+                            >
+
+                                {/* Timeline dot */}
+                                <div>
+                                </div>
+
+                                {/* Content */}
+                                <div>
+                                    <div>
+                                        <span>
+                                            {exp.period}
+                                        </span>
+                                        <h3>
+                                            {exp.role}
+                                        </h3>
+                                        <p>
+                                            {exp.company}
+                                        </p>
+                                        <p>
+                                            {exp.description}
+                                        </p>
+                                        <div>
+                                            {/* {exp.techonologies.map((tech, techIndex) => (
+                                               <span>
+                                                   {tech}
+                                               </span> 
+                                            ))} */}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        ))}
+
+                    </div>
+
                 </div>
             </div>
         </section>

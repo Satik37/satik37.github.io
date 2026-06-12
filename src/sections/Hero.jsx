@@ -74,7 +74,7 @@ export const Hero = () => {
                            <p className='text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200'>
                             Hello! I'm Saturnas Costantini Miliauskas,
                             <br/>
-                            I turn unstructured ideas into systems with clear boundaries, solid performance, and honest UX.
+                            I turn unstructured ideas into systems with clear boundaries, solid performance and honest UX.
                             <br/>
                             My code is structured, intentional and designed to survive the chaos of real products.
                             </p> 
