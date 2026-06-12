@@ -44,12 +44,16 @@ export const Projects = () => {
                 <h2 className='text-4xl md:text-5xl font-serif font-normal  mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground'>
                     Projects that turned and shaped scattered ideas into
                     <br/>
-                    <span className='font-bold text-white'> concrete and clean systems.</span>
+                    <span className='font-bold text-white'> concrete and clean systems
+                        <span className='text-secondary-foreground'>.</span>
+                    </span>
                 </h2>
                 <p className="text-muted-foreground animate-fade-in animation-delay-200 max-w-xl">
-                    A small selection of personal builds.
+                    A small selection of personal builds
+                        <span className='text-secondary-foreground'>.</span>
                     <br/>
-                    Projects born from curiosity, where loose ideas turned into organized and readable code I actually enjoy working on.
+                    Projects born from curiosity, where loose ideas turned into organized and readable code I actually enjoy working on
+                        <span className='text-secondary-foreground'>.</span>
                 </p>
             </div>
 

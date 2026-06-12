@@ -51,11 +51,13 @@ export const Experience = () => {
                     <h2
                         className='text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-white'    
                     >
-                        Experience<span className='font-serif text-secondary-foreground'> &</span> Background.
+                        Experience<span className='font-serif text-secondary-foreground'> &</span> Background
+                            <span className='text-secondary-foreground'>.</span>
                     </h2>
 
                     <p className='text-muted-foreground animate-fade-in animation-delay-200'>
-                        This is the path that brought me here: a shift from nursing into software, shaped by curiosity, patience and the quiet work of learning how to build things properly, with the goal of turning that effort into something solid and lasting over time.
+                        This is the path that brought me here: a shift from nursing into software, shaped by curiosity, patience and the quiet work of learning how to build things properly, with the goal of turning that effort into something solid and lasting over time
+                            <span className='text-secondary-foreground'>.</span>
                     </p>
                 </div>
 
