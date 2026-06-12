@@ -79,7 +79,13 @@ export const Experience = () => {
                                 </div>
 
                                 {/* Content */}
-                                <div className={`pl-8 md:pl-0 ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:col-start-2 md:pl-16'}`}>
+                                <div
+                                    className={`pl-8 md:pl-0 ${
+                                        index % 2 === 0
+                                        ? 'md:pr-16 md:text-right'
+                                        : 'md:col-start-2 md:pl-16'
+                                    }`}
+                                >
                                     <div>
                                         <span>
                                             {exp.period}
