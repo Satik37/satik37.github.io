@@ -86,7 +86,7 @@ export const Experience = () => {
                                         : 'md:col-start-2 md:pl-16'
                                     }`}
                                 >
-                                    <div>
+                                    <div className={`glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500`}>
                                         <span>
                                             {exp.period}
                                         </span>
