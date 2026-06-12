@@ -25,7 +25,7 @@ const experiences = [
     },
     {
         period: '2016 - 2020',
-        role: 'Bachelors Degree in Nursing Science',
+        role: 'Bachelors Degree in Nursing Science (Incomplete)',
         company: 'Università degli studi di Perugia',
         description: 'Before software, I studied nursing, a path that left me with patience, discipline, calm under high pressure and a way of thinking that still shapes how I approach problems today.',
         technologies: [],
@@ -75,8 +75,8 @@ export const Experience = () => {
                             >
 
                                 {/* Timeline dot */}
-                                <div className='absolute'>
-
+                                <div className='absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background z-10'>
+                                    {exp.current && <span className='absolute inset-0 rounded-full bg-primary animate-ping opacity-75'/>}
                                 </div>
 
                                 {/* Content */}
