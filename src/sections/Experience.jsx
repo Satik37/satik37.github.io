@@ -100,12 +100,20 @@ export const Experience = () => {
                                         <p className='text-sm text-muted-foreground mt-4'>
                                             {exp.description}
                                         </p>
-                                        <div>
-                                            {/* {exp.techonologies.map((tech, techIndex) => (
-                                               <span>
+                                        <div className={`flex flex-wrap gap-2 mt-4 ${
+                                                index % 2 === 0
+                                                ? 'md:justify-end'
+                                                : ''
+                                            }`}
+                                        >
+                                            {exp.technologies.map((tech, techIndex) => (
+                                               <span
+                                                    key={techIndex}
+                                                    className='px-3 py-1 bg-surface text-xs rounded-full text-muted-foreground'
+                                               >
                                                    {tech}
                                                </span> 
-                                            ))} */}
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
