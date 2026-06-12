@@ -75,7 +75,8 @@ export const Experience = () => {
                             >
 
                                 {/* Timeline dot */}
-                                <div>
+                                <div className='absolute'>
+
                                 </div>
 
                                 {/* Content */}
