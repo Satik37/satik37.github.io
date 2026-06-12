@@ -88,16 +88,16 @@ export const Experience = () => {
                                     }`}
                                 >
                                     <div className={`glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500`}>
-                                        <span>
+                                        <span className='text-sm text-primary font-medium'>
                                             {exp.period}
                                         </span>
-                                        <h3>
+                                        <h3 className='text-xl font-semibold mt-2'>
                                             {exp.role}
                                         </h3>
-                                        <p>
+                                        <p className='text-muted-foreground'>
                                             {exp.company}
                                         </p>
-                                        <p>
+                                        <p className='text-sm text-muted-foreground mt-4'>
                                             {exp.description}
                                         </p>
                                         <div>
