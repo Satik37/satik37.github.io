@@ -82,6 +82,7 @@ Every push to the `main` branch:
 [https://satik37.github.io](https://satik37.github.io)
 
 ## Roadmap
+
 - 'outside of code'
 - 'contact me'
 - optimize for Firefox
@@ -89,7 +90,6 @@ Every push to the `main` branch:
 - multilingual content
 - some specific visual polishing
 - some new and more elaborate/complex animations
-
 
 ## TODO:
 
