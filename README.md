@@ -14,16 +14,16 @@
 
 This repository contains my personal developer portfolio, built with React, Vite and Tailwind CSS v4. Deployed on GitHub Pages.
 
-The site is currently being rebuilt from scratch. I’m using it not only to present my work better, but also to improve how I structure frontend projects, handle styling, and think about visual communication.
+The site is currently being rebuilt from scratch. I’m using it not only to present my work better but also to improve how I structure frontend projects, how I handle and optimize styling and how I think about visual communication with all the major and minor implications.
 
 ## Why this project exists
 
-This portfolio is meant to be:
+This portfolio is meant to:
 
-- a place to present my projects and technical work
-- a space to experiment with modern frontend tooling
-- a personal site that feels cleaner and more intentional than a simple list of links
-- a central place to collect web, mobile, and game-related work
+- present my projects and technical work
+- keep experimenting with modern frontend tooling
+- be personal site that feels cleaner and more intentional than a simple list of links
+- a central place to collect web, mobile and game-related work
 
 ## Current status
 
@@ -41,12 +41,12 @@ Some sections may be incomplete, under revision, or visually inconsistent while 
 
 ## What I’m focusing on
 
-This rebuild is helping me work on:
+This build is helping me to work on:
 
-- clean frontend structure
-- visual consistency
-- layout experimentation
-- project presentation
+- clean frontend starting from the structure
+- real visual consistency
+- various layout experimentation
+- projects presentation
 - accessibility and performance improvements
 
 ## Running the project locally
@@ -83,12 +83,19 @@ Every push to the `main` branch:
 
 ## Roadmap
 
-- new hero section
-- improved project presentation
+- optimize for Firefox
 - better accessibility and performance
 - multilingual content
-- more polished visual structure overall
+- some specific visual polishing
 - outside of code
+
+## TODO:
+
+- improve links logic
+- add CV
+- optimize performance
+- optimize accessibility
+- optimize images
 
 ## Contact
 
