@@ -12,7 +12,7 @@
                                                                             
 ``` 
 
-This repository contains my personal developer portfolio, built with React, Vite and Tailwind CSS v4. Deployed on GitHub Pages.
+This repository contains my personal developer portfolio built with React, Vite and Tailwind CSS v4 (the new version). Deployed on GitHub Pages.
 
 The site is currently being rebuilt from scratch. I’m using it not only to present my work better but also to improve how I structure frontend projects, how I handle and optimize styling and how I think about visual communication with all the major and minor implications.
 
