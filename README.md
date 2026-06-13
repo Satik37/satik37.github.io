@@ -82,17 +82,21 @@ Every push to the `main` branch:
 [https://satik37.github.io](https://satik37.github.io)
 
 ## Roadmap
-
+- 'outside of code'
+- 'contact me'
 - optimize for Firefox
 - better accessibility and performance
 - multilingual content
 - some specific visual polishing
-- outside of code
+- some new and more elaborate/complex animations
+
 
 ## TODO:
 
-- improve links logic
+- fix 'view all projects' button
 - add CV
+- make 'contact me'
+- review and polish texts
 - optimize performance
 - optimize accessibility
 - optimize images
