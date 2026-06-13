@@ -70,6 +70,40 @@ const interests = [
 
 export const Interests = () => {
     return (
-        <div></div>
+        <section
+            id='interests'
+            className='py-32 relative overflow-hidden'
+        >
+            <div
+                className='absolute top-1/2 left-1/2
+                w-200 h-200 bg-primary/5
+                rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2'
+            />
+            <div
+                className='container mx-auto px-6 relative z-10'
+            >
+                {/* Section header */}
+                <div
+                    className='text-center max-w-3xl mx-auto mb-16'
+                >
+                    <span
+                        className='text-secondary-foreground text-sm font-medium
+                        tracking-wider uppercase animate-fade-in'
+                    >
+                        Beyond the code
+                    </span>
+                    <h2 className='text-4xl md:text-5xl font-bold mt-4 mb-6
+                    animate-fade-in animation-delay-100 text-secondary-foreground'>
+                        What shapes{' '}
+                        <span
+                            className='font-serif italic font-normal text-white' 
+                        >
+                            me
+                        </span>
+                        .
+                    </h2>
+                </div>
+            </div>
+        </section>
     )
 }
