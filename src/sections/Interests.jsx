@@ -98,11 +98,14 @@ export const Interests = () => {
                         <span
                             className='font-serif italic font-normal text-white' 
                         >
-                            me
+                        me
                         </span>
                         .
                     </h2>
                 </div>
+
+                {/* Interests carousel */}
+
             </div>
         </section>
     )

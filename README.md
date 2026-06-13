@@ -85,6 +85,7 @@ Every push to the `main` branch:
 
 - 'outside of code'
 - 'contact me'
+- footer
 - optimize for Firefox
 - better accessibility and performance
 - multilingual content
