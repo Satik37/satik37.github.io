@@ -154,7 +154,7 @@ export const Interests = () => {
 
                         {/* Content */}
                         <div className='relative z-10 flex min-h-135 flex-col justify-between p-6 md:p-8 lg:p-10'>
-                        {/* Top left */}
+                            {/* Top left */}
                             <div className='max-w-2xl space-y-4'>
                                 <h3 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-white leading-tight'>
                                     {interests[0].hobby}
@@ -172,7 +172,7 @@ export const Interests = () => {
                                 </div>
                             </div>
 
-                            {/* Bottom left */}
+                            {/* Bottom description */}
                             <div className='max-w-5xl'>
                                 <div className='glass-soft rounded-3xl px-6 py-5 md:px-67md:py-6 shadow-[0_8px_30px_rgba(0,0,0,0.18)]'>
                                     <p className='text-sm md:text-base leading-relaxed text-white/90'>
@@ -180,6 +180,7 @@ export const Interests = () => {
                                     </p>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
