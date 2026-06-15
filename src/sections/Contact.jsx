@@ -1,4 +1,5 @@
-import { Mail } from 'lucide-react';
+import { Mail, SendHorizontal } from 'lucide-react';
+import { Button } from '@/components/Button';
 
 const contactInfo = [
     {
@@ -10,6 +11,16 @@ const contactInfo = [
 ]
 
 export const Contact = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    })
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    }
+
     return (
         <section id='contact' className='py-32 relative overflow-hidden'>
             <div className='absolute top-0 left-0 w-full h-full'>
@@ -58,6 +69,10 @@ export const Contact = () => {
                                     type='text'              
                                     required
                                     placeholder='Your name or nickname'
+                                    value={formData.name}
+                                    onChange={(e) =>
+                                        setFormData({...formData, name: e.target.value})
+                                    }
                                     className='w-full px-4 py-3
                                         bg-surface rounded-xl border border-border
                                         focus:border-primary focus:ring-0.5 focus:ring-primary outline-none transition-all'
@@ -76,6 +91,10 @@ export const Contact = () => {
                                     type='email'   
                                     required
                                     placeholder='Best email to reply to'
+                                    value={formData.email}
+                                    onChange={(e) =>
+                                        setFormData({...formData, email: e.target.value})
+                                    }
                                     className='w-full px-4 py-3
                                         bg-surface rounded-xl border border-border
                                         focus:border-primary focus:ring-0.5 focus:ring-primary outline-none transition-all'
@@ -93,6 +112,10 @@ export const Contact = () => {
                                     name='message'
                                     required
                                     placeholder='A few lines about what brings you here'
+                                    value={formData.message}
+                                    onChange={(e) =>
+                                        setFormData({...formData, message: e.target.value})
+                                    }
                                     className='w-full px-4 py-3
                                         bg-surface rounded-xl border border-border
                                         focus:border-primary focus:ring-0.5 focus:ring-primary outline-none transition-all
@@ -100,6 +123,15 @@ export const Contact = () => {
                                     rows={6}
                                 />
                             </div>
+
+                            <Button
+                                className='w-full'
+                                type='submit'
+                                size='lg'
+                                >
+                                Send Message
+                                <SendHorizontal />
+                            </Button>
 
                         </form>
                     </div>
