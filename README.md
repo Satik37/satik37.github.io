@@ -39,6 +39,7 @@ Some sections may be incomplete, under revision, or visually inconsistent while 
 - **Hosting:** GitHub Pages
 - **Deployment:** GitHub Actions
 - **Analytics:** GoatCounter
+- **Contact system:** EmailJS (temporary)
 
 ## Analytics and privacy
 
@@ -53,7 +54,37 @@ I picked it because it aligns with how I want this portfolio to behave:
 I’m using it for analytics instead of a more intrusive solution. It gives me simple, aggregate stats (page views, referrers, countries) without storing IP addresses, cookies, or unique IDs.
 
 One downside is that GoatCounter’s hosted domains (`goatcounter.com` and `gc.zgo.at`) are blocked by many adblockers, so some visits are not recorded.
-I plan to switch to a self-hosted, privacy-friendly solution in the future to get more accurate stats while keeping the same respect for visitors’ privacy.
+I plan to switch to a self-hosted, privacy-friendly solution in the future to improve reliability while keeping the same respect for visitors' privacy.
+
+## Contact form
+
+The contact form is currently planned as a two-step system.
+
+### Short term: EmailJS
+
+For the first weeks, the site will use **EmailJS** so the contact form can work immediately without introducing a backend.
+
+I made this choice because:
+
+- GitHub Pages hosts static files only
+- EmailJS works directly from the client
+- it allows the form to be available immediately while the rest of the site is still under active development, especially the backend
+
+### Long term: backend migration
+
+The contact flow will be replaced with a backend-based setup in order to improve:
+
+- validation
+- spam protection and rate limiting
+- error handling
+- reliability of delivery
+- room for future automations and more advanced logic
+- privacy
+
+The frontend can still remain deployed on GitHub Pages, while the backend will live on a separate service such as a serverless platform or a small custom API.
+
+## Running the project locally
+
 
 ## What I’m focusing on
 
@@ -106,8 +137,10 @@ Every push to the `main` branch:
 - better accessibility and performance
 - switch to a self-hosted, privacy-friendly analytics tool
 - multilingual content
-- some specific visual polishing
-- some new and more elaborate/complex animations
+- implement backend
+- replace the temporary contact flow with a backend-based system
+- visual polishing
+- new and more elaborate/complex animations where they add value
 
 ## TODO:
 
