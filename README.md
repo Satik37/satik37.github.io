@@ -52,6 +52,9 @@ I picked it because it aligns with how I want this portfolio to behave:
 
 I’m using it for analytics instead of a more intrusive solution. It gives me simple, aggregate stats (page views, referrers, countries) without storing IP addresses, cookies, or unique IDs.
 
+One downside is that GoatCounter’s hosted domains (`goatcounter.com` and `gc.zgo.at`) are blocked by many adblockers, so some visits are not recorded.
+I plan to switch to a self-hosted, privacy-friendly solution in the future to get more accurate stats while keeping the same respect for visitors’ privacy.
+
 ## What I’m focusing on
 
 This build is helping me to work on:
@@ -101,6 +104,7 @@ Every push to the `main` branch:
 - footer
 - optimize for Firefox
 - better accessibility and performance
+- switch to a self-hosted, privacy-friendly analytics tool
 - multilingual content
 - some specific visual polishing
 - some new and more elaborate/complex animations
@@ -114,6 +118,7 @@ Every push to the `main` branch:
 - optimize performance
 - optimize accessibility
 - optimize images
+- switch to a self-hosted, privacy-friendly analytics tool
 
 ## Contact
 
