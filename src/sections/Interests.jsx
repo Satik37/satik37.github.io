@@ -1,4 +1,5 @@
-import { Orbit } from 'lucide-react';
+import { Orbit, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 const interests = [
     {
@@ -93,6 +94,16 @@ const interests = [
 ]
 
 export const Interests = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const next = () => {
+        setActiveIndex((prev) => (prev + 1) % interests.length)
+    }
+
+    const previous = () => {
+        setActiveIndex((prev) => (prev - 1 + interests.length) % interests.length)
+    }
+
     return (
         <section
             id='interests'
@@ -133,8 +144,8 @@ export const Interests = () => {
                     <div className='relative overflow-hidden rounded-4xl glow-border animate-fade-in animation-delay-200 min-h-135'>
                         {/* Background image */}
                         <img
-                            src={interests[0].image}
-                            alt={interests[0].hobby}
+                            src={interests[activeIndex].image}
+                            alt={interests[activeIndex].hobby}
                             className='absolute inset-0 w-full h-full object-cover opacity-60'    
                         />
 
@@ -154,14 +165,15 @@ export const Interests = () => {
 
                         {/* Content */}
                         <div className='relative z-10 flex min-h-135 flex-col justify-between p-6 md:p-8 lg:p-10'>
+
                             {/* Top left */}
                             <div className='max-w-2xl space-y-4'>
                                 <h3 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-white leading-tight'>
-                                    {interests[0].hobby}
+                                    {interests[activeIndex].hobby}
                                 </h3>
 
                                 <div className='flex flex-wrap gap-2 max-w-2xl'>
-                                    {interests[0].meta.map((item, index) => (
+                                    {interests[activeIndex].meta.map((item, index) => (
                                     <span
                                         key={index}
                                         className='px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-700'
@@ -176,14 +188,47 @@ export const Interests = () => {
                             <div className='max-w-5xl'>
                                 <div className='glass-soft rounded-3xl px-6 py-5 md:px-67md:py-6 shadow-[0_8px_30px_rgba(0,0,0,0.18)]'>
                                     <p className='text-sm md:text-base leading-relaxed text-white/90'>
-                                        {interests[0].description}
+                                        {interests[activeIndex].description}
                                     </p>
                                 </div>
                             </div>
 
                         </div>
+
+                        
+
                     </div>
                 </div>
+
+                {/* Interests navigation */}
+                <div className='flex items-center justify-center gap-4 mt-8'>
+                    <button className='p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-700'
+                        onClick={previous}
+                    >
+                        <ChevronLeft />
+                    </button>
+
+                    <div className='flex gap-2'>
+                        {interests.map((_, index) => (
+                            <button
+                                onClick={() => setActiveIndex(index)}
+                                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                    index === activeIndex
+                                    ? 'w-8 bg-primary' 
+                                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                                }`}
+                            />
+                        ))}
+                    </div>
+
+                    <button
+                        className='p-3 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-700'
+                        onClick={next}
+                    >
+                        <ChevronRight />
+                    </button>
+                </div>
+
             </div>
         </section>
     )
