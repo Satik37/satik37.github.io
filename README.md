@@ -113,7 +113,7 @@ Every push to the `main` branch:
 
 - fix 'view all projects' button
 - add CV
-- make 'contact me'
+- refine interests
 - review and polish texts
 - optimize performance
 - optimize accessibility
