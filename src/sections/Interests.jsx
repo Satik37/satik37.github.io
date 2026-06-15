@@ -135,13 +135,14 @@ export const Interests = () => {
                         <img
                             src={interests[0].image}
                             alt={interests[0].hobby}
-                            className='absolute inset-0 w-full h-full object-cover saturate-[0.7] brightness-[0.5] contrast-[1.05]'
+                            className='absolute inset-0 w-full h-full object-cover opacity-60'    
                         />
 
                         {/* Overlays */}
-                        <div className='absolute inset-0 bg-linear-to-t from-background via-background/20 to-background/10' />
-                        <div className='absolute inset-0 bg-linear-to-r from-background/30 via-transparent to-background/20' />
-                        <div className='absolute inset-0 bg-black/20' />
+                        <div className='absolute inset-0 bg-linear-to-t from-background via-background/35 to-background/10' />
+                        <div className='absolute inset-0 bg-linear-to-r from-background/38 via-transparent to-background/18' />
+                        <div className='absolute inset-0 bg-linear-to-t from-card/60 via-transparent to-transparent' />
+                        <div className='absolute inset-0 bg-background/12' />
 
                         {/* Badge */}
                         <div
@@ -155,11 +156,11 @@ export const Interests = () => {
                         <div className='relative z-10 flex min-h-135 flex-col justify-between p-6 md:p-8 lg:p-10'>
                         {/* Top left */}
                             <div className='max-w-2xl space-y-4'>
-                                <h3 className='text-2xl md:text-3xl lg:text-[2.2rem] font-semibold text-white leading-tight'>
+                                <h3 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-white leading-tight'>
                                     {interests[0].hobby}
                                 </h3>
 
-                                <div className='flex flex-wrap gap-2'>
+                                <div className='flex flex-wrap gap-2 max-w-2xl'>
                                     {interests[0].meta.map((item, index) => (
                                     <span
                                         key={index}
@@ -172,10 +173,12 @@ export const Interests = () => {
                             </div>
 
                             {/* Bottom left */}
-                            <div className='max-w-xl'>
-                                <p className='text-sm md:text-base leading-relaxed text-white/85'>
-                                    {interests[0].description}
-                                </p>
+                            <div className='max-w-5xl'>
+                                <div className='glass-soft rounded-3xl px-6 py-5 md:px-67md:py-6 shadow-[0_8px_30px_rgba(0,0,0,0.18)]'>
+                                    <p className='text-sm md:text-base leading-relaxed text-white/90'>
+                                        {interests[0].description}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

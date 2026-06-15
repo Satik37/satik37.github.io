@@ -46,6 +46,15 @@
     border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
   }
 
+  .glass-soft{
+    background: color-mix(in srgb, var(--color-surface) 20%, transparent);
+    backdrop-filter: blur(8px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 20%, transparent);
+    box-shadow:
+      0 10px 30px color-mix(in srgb, black 22%, transparent),
+      inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
+  }
+
   .glass-strong {
     background: color-mix(in srgb, var(--color-surface) 80%, transparent);
     backdrop-filter: blur(24px);
