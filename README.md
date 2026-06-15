@@ -22,8 +22,8 @@ This portfolio is meant to:
 
 - present my projects and technical work
 - keep experimenting with modern frontend tooling
-- be personal site that feels cleaner and more intentional than a simple list of links
-- a central place to collect web, mobile and game-related work
+- be a personal site that feels cleaner and more intentional than a simple list of links
+- act as a central place to collect web, mobile and game-related work
 
 ## Current status
 
@@ -35,9 +35,22 @@ Some sections may be incomplete, under revision, or visually inconsistent while 
 
 - **Frontend:** React
 - **Build tool:** Vite
-- **Styling:** Tailwind CSS v4, Lucide for React
+- **Styling:** Tailwind CSS v4, Lucide React
 - **Hosting:** GitHub Pages
 - **Deployment:** GitHub Actions
+- **Analytics:** GoatCounter
+
+## Analytics and privacy
+
+This site uses GoatCounter for basic visit statistics.
+
+I picked it because it aligns with how I want this portfolio to behave:
+
+- no invasive tracking or user profiling
+- no cookies, cookie banners, consent pop-ups or cross-site identifiers
+- only high-level, aggregate metrics (page views, referrers, countries)
+
+I’m using it for analytics instead of a more intrusive solution. It gives me simple, aggregate stats (page views, referrers, countries) without storing IP addresses, cookies, or unique IDs.
 
 ## What I’m focusing on
 
