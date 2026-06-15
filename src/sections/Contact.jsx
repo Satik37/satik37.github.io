@@ -40,10 +40,67 @@ export const Contact = () => {
                     </p>
                 </div>
 
-                <div>
-                    <div>
-                        <form>
-                            
+                {/* Contact form */}
+                <div className='grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto'>
+                    <div className='glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300'>
+                        <form className='space-y-6'>
+
+                           <div>
+                                <label
+                                    htmlFor='name'
+                                    className='block text-sm font-medium mb-2'
+                                >
+                                    Name
+                                </label>
+                                <input
+                                    id='name'
+                                    name='name'
+                                    type='text'              
+                                    required
+                                    placeholder='Your name or nickname'
+                                    className='w-full px-4 py-3
+                                        bg-surface rounded-xl border border-border
+                                        focus:border-primary focus:ring-0.5 focus:ring-primary outline-none transition-all'
+                                />
+                            </div> 
+                            <div>
+                                <label
+                                    htmlFor='email'
+                                    className='block text-sm font-medium mb-2'
+                                >
+                                    Email
+                                </label>
+                                <input
+                                    id='email'
+                                    name='email'
+                                    type='email'   
+                                    required
+                                    placeholder='Best email to reply to'
+                                    className='w-full px-4 py-3
+                                        bg-surface rounded-xl border border-border
+                                        focus:border-primary focus:ring-0.5 focus:ring-primary outline-none transition-all'
+                                />
+                            </div> 
+                            <div>
+                                <label
+                                    htmlFor='message'
+                                    className='block text-sm font-medium mb-2'
+                                >
+                                    Message
+                                </label>
+                                <textarea
+                                    id='message'
+                                    name='message'
+                                    required
+                                    placeholder='A few lines about what brings you here'
+                                    className='w-full px-4 py-3
+                                        bg-surface rounded-xl border border-border
+                                        focus:border-primary focus:ring-0.5 focus:ring-primary outline-none transition-all
+                                        resize-none'
+                                    rows={6}
+                                />
+                            </div>
+
                         </form>
                     </div>
                 </div>
