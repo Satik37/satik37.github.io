@@ -1,6 +1,7 @@
-import { Mail, SendHorizontal } from 'lucide-react';
+import { AlertCircle, CheckCircle, Mail, SendHorizontal } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const contactInfo = [
     {
@@ -18,8 +19,57 @@ export const Contact = () => {
         message: ''
     })
 
+    const [isLoading, setIsLoading] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState({
+        type: null, // success, error
+        message: ''
+    })
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setIsLoading(true);
+        setSubmitStatus({
+            type: null,
+            message: ''
+        })
+
+        try {
+           const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+           const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+           const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+           if (!serviceId || !templateId || !publicKey) {
+            throw new Error(
+                'Missing EmailJS credentials'
+            );
+           }
+           await emailjs.send(serviceId, templateId, {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+           }, publicKey);
+
+           setSubmitStatus({
+            type: 'success',
+            message: 'Message sent successfully! I will get back to you as soon as possible.'
+           })
+           setFormData({
+            name: '',
+            email: '',
+            message: ''
+           })
+        } catch (err) {
+            console.error('EmailJS error:', err);
+            setSubmitStatus({
+                type: 'error',
+                message:
+                    err.text ||'An error occurred while sending the message. Please try again later.'
+            })
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -55,7 +105,10 @@ export const Contact = () => {
                 {/* Contact form */}
                 <div className='grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto'>
                     <div className='glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300'>
-                        <form className='space-y-6'>
+                        <form
+                            className='space-y-6'
+                            onSubmit={handleSubmit}
+                        >
 
                            <div>
                                 <label
@@ -129,10 +182,42 @@ export const Contact = () => {
                                 className='w-full'
                                 type='submit'
                                 size='lg'
-                                >
-                                Send Message
-                                <SendHorizontal />
+                                disable={isLoading}
+                            >
+                                {isLoading ? (
+                                    <>
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        Send Message
+                                        <SendHorizontal
+                                            className='w-5 h-5'
+                                        />
+                                    </>
+                                )}
                             </Button>
+
+                            {submitStatus.type && (
+                                <div
+                                    className={`flex items-center gap-3 p-4 rounded-xl ${
+                                        submitStatus.type === 'success'
+                                            ? 'bg-green-500/10 border-green-500/20 text-green-500'
+                                            : 'bg-red-500/10 border-red-500/20 text-red-500'
+                                    }`}
+                                >
+                                    {submitStatus.type === 'success' ? (
+                                        <CheckCircle className='w-5 h-5 shrink-0' />
+                                    ) : (
+                                        <AlertCircle className='w-5 h-5 shrink-0' />
+                                    )}
+                                    <p
+                                        className='text-sm'
+                                    >
+                                        {submitStatus.message}
+                                    </p>
+                                </div>
+                            )}
 
                         </form>
                     </div>
