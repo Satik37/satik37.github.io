@@ -30,7 +30,7 @@ const interests = [
             'Strategy, positioning, timing',
             'stats and long-term improvement'
         ],
-        image: '/interests/interest-wot.png',
+        image: '/interests/interests-placeholder.png',
         stats: [],
         links: [{
             label: '',
@@ -46,7 +46,7 @@ const interests = [
             'scale model tanks',
             'custom 3D printed miniatures'
         ],
-        image: '/interests/interest-modeling.png',
+        image: '/interests/interests-placeholder.png',
         stats: [
             'Custom 3D printed miniatures paint',
             'Scale model tanks',
@@ -67,7 +67,7 @@ const interests = [
             'curiosity',
             'structure behind words'
         ],
-        image: '/interests/interest-linguistics.png',
+        image: '/interests/interests-placeholder.png',
         stats: [],
         links: [{
             label: '',
@@ -83,7 +83,7 @@ const interests = [
             'discipline',
             'routines and future fitness app ideas'
         ],
-        image: '/interests/interest-workout.png',
+        image: '/interests/interests-placeholder.png',
         stats: [],
         links: [{
             label: '',
