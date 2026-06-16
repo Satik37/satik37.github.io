@@ -95,7 +95,7 @@ export const Hero = () => {
                         {/* Social links */}
                         <div className='flex items-center gap-4 animate-fade-in animation-delay-400'>
                             <span className='text-sm text-muted-foreground'>
-                                Follow me: 
+                                Find me here: 
                             </span>
                             {[
                                 {

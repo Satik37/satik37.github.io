@@ -1,16 +1,7 @@
-import { AlertCircle, CheckCircle, Mail, SendHorizontal } from 'lucide-react';
+import { AlertCircle, CheckCircle, SendHorizontal } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-
-const contactInfo = [
-    {
-        icon: Mail,
-        label: 'Email',
-        value: 'satmil@tiscali.it',
-        href: 'mailto:satmil@tiscali.it'
-    },
-]
 
 export const Contact = () => {
     const [formData, setFormData] = useState({
@@ -41,36 +32,46 @@ export const Contact = () => {
            const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
            if (!serviceId || !templateId || !publicKey) {
-            throw new Error(
+                throw new Error(
                 'Missing EmailJS credentials'
-            );
+                );
            }
-           await emailjs.send(serviceId, templateId, {
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-           }, publicKey);
+           await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                },
+                {
+                    publicKey
+                }
+            );
 
-           setSubmitStatus({
-            type: 'success',
-            message: 'Message sent successfully! I will get back to you as soon as possible.'
-           })
-           setFormData({
-            name: '',
-            email: '',
-            message: ''
-           })
+            setSubmitStatus({
+                type: 'success',
+                message: 'Message sent successfully! I will get back to you as soon as possible.'
+            });
+            
+            setFormData({
+                name: '',
+                email: '',
+                message: ''
+            });
+
         } catch (err) {
             console.error('EmailJS error:', err);
+
             setSubmitStatus({
                 type: 'error',
                 message:
-                    err.text ||'An error occurred while sending the message. Please try again later.'
-            })
+                    err?.text ||'An error occurred while sending the message. Please try again later.'
+            });
         } finally {
             setIsLoading(false);
         }
-    }
+    };
 
     return (
         <section id='contact' className='py-32 relative overflow-hidden'>
@@ -85,6 +86,7 @@ export const Contact = () => {
             </div>
 
             <div className='container mx-auto px-6 relative z-10'>
+
                 {/* Section header */}
                 <div className='text-center max-w-3xl mx-auto mb-16'>
                     <span className='text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in'>
@@ -103,13 +105,12 @@ export const Contact = () => {
                 </div>
 
                 {/* Contact form */}
-                <div className='grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto'>
+                <div className='max-w-2xl mx-auto'>
                     <div className='glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300'>
                         <form
                             className='space-y-6'
                             onSubmit={handleSubmit}
                         >
-
                            <div>
                                 <label
                                     htmlFor='name'
@@ -131,7 +132,8 @@ export const Contact = () => {
                                         bg-surface rounded-xl border border-border
                                         focus:border-primary focus:ring-0.5 focus:ring-primary outline-none transition-all'
                                 />
-                            </div> 
+                            </div>
+
                             <div>
                                 <label
                                     htmlFor='email'
@@ -153,7 +155,8 @@ export const Contact = () => {
                                         bg-surface rounded-xl border border-border
                                         focus:border-primary focus:ring-0.5 focus:ring-primary outline-none transition-all'
                                 />
-                            </div> 
+                            </div>
+
                             <div>
                                 <label
                                     htmlFor='message'
@@ -182,7 +185,7 @@ export const Contact = () => {
                                 className='w-full'
                                 type='submit'
                                 size='lg'
-                                disable={isLoading}
+                                disabled={isLoading}
                             >
                                 {isLoading ? (
                                     <>
@@ -191,19 +194,20 @@ export const Contact = () => {
                                 ) : (
                                     <>
                                         Send Message
-                                        <SendHorizontal
-                                            className='w-5 h-5'
-                                        />
+                                        <SendHorizontal className='w-5 h-5'/>
                                     </>
                                 )}
                             </Button>
 
                             {submitStatus.type && (
                                 <div
+                                    role={submitStatus.type === 'error' ? 'alert' : 'status'}
+                                    aria-live={submitStatus.type === 'error' ? 'assertive' : 'polite'}
+                                    aria-atomic='true'
                                     className={`flex items-center gap-3 p-4 rounded-xl ${
                                         submitStatus.type === 'success'
-                                            ? 'bg-green-500/10 border-green-500/20 text-green-500'
-                                            : 'bg-red-500/10 border-red-500/20 text-red-500'
+                                            ? 'bg-green-500/10 border border-green-500/20 text-green-500'
+                                            : 'bg-red-500/10 border border-red-500/20 text-red-500'
                                     }`}
                                 >
                                     {submitStatus.type === 'success' ? (
@@ -211,9 +215,7 @@ export const Contact = () => {
                                     ) : (
                                         <AlertCircle className='w-5 h-5 shrink-0' />
                                     )}
-                                    <p
-                                        className='text-sm'
-                                    >
+                                    <p className='text-sm'>
                                         {submitStatus.message}
                                     </p>
                                 </div>
@@ -221,6 +223,17 @@ export const Contact = () => {
 
                         </form>
                     </div>
+                    
+                    <p className='mt-6 text-sm text-muted-foreground text-center md:text-left'>
+                            Prefer direct email? You can also write to{' '}
+                            <a
+                                className='text-primary underline-offset-4 hover:underline'
+                                href='mailto:satmil@tiscali.it'
+                            >
+                                satmil@tiscali.it
+                            </a>
+                            .
+                    </p>
                 </div>
             </div>
         
