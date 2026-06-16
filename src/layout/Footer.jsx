@@ -36,7 +36,7 @@ export const Footer = () => {
           {/* Logo & Copyright */}
           <div className='text-center md:text-left'>
             <a
-                href='#'
+                href='#home'
                 className='text-xl font-bold tracking-tight transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 rounded-md'
             >
               Satik37<span className='text-primary'>.</span>

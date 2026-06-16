@@ -33,7 +33,7 @@ export const Navbar = () => {
                 aria-label='Main navigation'
             >
                 <a
-                    href='#'
+                    href='#home'
                     onClick={() => setIsMobileMenuOpen(false)}
                     className='text-xl font-bold tracking-tight hover:text-primary transition-colors'
                 >

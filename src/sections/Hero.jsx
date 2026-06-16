@@ -28,7 +28,7 @@ const skills = [
 
 export const Hero = () => {
     return (
-        <section className='relative min-h-screen flex items-center overflow-hidden'>
+        <section id='home' className='relative min-h-screen flex items-center overflow-hidden'>
             {/* Background*/}
             <div className='absolute inset-0'>
                 <img src='/satik_hero.png' alt='Satik37 Hero' className='w-full h-full object-cover opacity-40'/>
@@ -83,9 +83,13 @@ export const Hero = () => {
                         </div>
                         {/* CTAs */}
                         <div className='flex flex-wrap gap-4 animate-fade-in animation-delay-300'>
-                            <Button size='lg'>
-                                Contact Me<MessageSquareCode className='w-5 h-5'/>
-                            </Button>
+                            <a
+                                href='#contact'
+                                className='inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
+                            >
+                                Contact Me
+                                <MessageSquareCode className='w-5 h-5' aria-hidden='true' />
+                            </a>
                             <AnimatedBorderButton>
                                 <Download className='w-5 h-5'/>
                                 Download CV
