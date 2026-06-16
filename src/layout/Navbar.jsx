@@ -19,7 +19,6 @@ export const Navbar = () => {
         };
 
         window.addEventListener('scroll', handleScroll);
-
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -34,18 +33,18 @@ export const Navbar = () => {
                 className='container mx-auto px-6 flex items-center justify-between'
                 aria-label='Main navigation'
             >
-                <a href='#' className='text-xl font-bold tracking-tight hover:text-primary'>
+                <a href='#' className='text-xl font-bold tracking-tight hover:text-primary transition-colors'>
                     Satik37<span className='text-primary'>.</span>
                 </a>
                 
                 {/* Desktop Nav */}
                 <div className='hidden md:flex items-center gap-1'>
                     <div className='glass rounded-full px-2 py-1 flex items-center gap-1'>
-                        {navLinks.map((link, index) => (
+                        {navLinks.map((link) => (
                             <a
                                 href={link.href}
-                                key={index}
-                                className='px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface'
+                                key={link.href}
+                                className='px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface transition-colors'
                             >
                                 {link.label}
                             </a>
@@ -55,26 +54,63 @@ export const Navbar = () => {
 
                 {/* CTA Button */}
                 <div className='hidden md:block'>
-                    <Button size="sm">Contact Me</Button>
+                    <a
+                        href='#contact'
+                        className='inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
+                    >
+                        Contact Me
+                    </a>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className='md:hidden p-2 text-foreground cursor-pointer'
+                    type='button'
+                    className='md:hidden relative inline-flex h-10 w-10
+                        items-center justify-center rounded-full
+                        text-foreground transition-colors hover:bg-white/5
+                        focus:outline-none focus-visible:ring-2 focus-visible:ring-primary
+                        cursor-pointer'
                     onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                    aria-expanded={isMobileMenuOpen}
+                    aria-controls='mobile-menu'
+                    aria-haspopup='true'
+                    aria-label={isMobileMenuOpen
+                        ? 'Close navigation menu'
+                        : 'Open navigation menu'
+                    }
                 >
-                  {isMobileMenuOpen ? <X size={24} /> : <Menu size={24}/>}      
+                    <Menu
+                        size={24}
+                        className={`absolute transition-all duration-300 ease-out ${
+                            isMobileMenuOpen
+                                ? 'rotate-90 scale-75 opacity-0'
+                                : 'rotate-0 scale-100 opacity-100'
+                        }`}
+                        aria-hidden='true'
+                    />
+                    <X
+                        size={24}
+                        className={`absolute transition-all duration-300 ease-out ${
+                            isMobileMenuOpen
+                                ? 'rotate-0 scale-100 opacity-100'
+                                : '-rotate-90 scale-75 opacity-0'
+                        }`}
+                        aria-hidden='true'
+                    />
                 </button>
             </nav>
 
             {/* Mobile Nav Menu */}
             {isMobileMenuOpen && (
-                <div className='md:hidden glass-strong animate-fade-in'>
+                <div
+                    id='mobile-menu'
+                    className='md:hidden glass-strong animate-fade-in'
+                >
                     <div className='container mx-auto px-6 py-6 flex flex-col gap-4'>
-                        {navLinks.map((link, index) => (
+                        {navLinks.map((link) => (
                             <a
                                 href={link.href}
-                                key={index}
+                                key={link.href}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className='text-lg text-muted-foreground hover:text-foreground py-2'
                             >
@@ -82,9 +118,13 @@ export const Navbar = () => {
                             </a>
                     ))}
 
-                    <Button onClick={() => setIsMobileMenuOpen(false)}>
+                    <a
+                        href='#contact'
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className='inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
+                    >
                         Contact Me
-                    </Button>
+                    </a>
                 </div>
             </div>
             )}
