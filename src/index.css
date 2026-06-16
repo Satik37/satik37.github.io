@@ -46,12 +46,14 @@
 @layer components {
   .glass {
     background: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
   }
 
   .glass-soft{
     background: color-mix(in srgb, var(--color-surface) 20%, transparent);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     border: 1px solid color-mix(in srgb, var(--color-border) 20%, transparent);
     box-shadow:
@@ -61,6 +63,7 @@
 
   .glass-strong {
     background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    -webkit-backdrop-filter: blur(24px);
     backdrop-filter: blur(24px);
     border: 1px solid color-mix(in srgb, var(--color-border) 80%, transparent);
   }
@@ -112,6 +115,16 @@
     }
   }
 
+@keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
 @keyframes marquee {
   from {
     transform: translate3d(0, 0, 0);
@@ -128,15 +141,6 @@
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
   }
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
   .animate-fade-in {
     animation: fade-in 0.5s ease-out both;
