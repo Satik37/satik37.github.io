@@ -122,7 +122,7 @@ export const Hero = () => {
                                         href={social.href}
                                         target='_blank'
                                         rel='noopener noreferrer'
-                                        aria-label={`Visit ${social.href} profile`}
+                                        aria-label={`Visit ${social.label} profile`}
                                         title={social.label}
                                         // className='p-2 rounded-full glass hover:bg-primary/10   hover:text-primary transition-all duration-300'
                                         className='group inline-flex items-center justify-center rounded-full glass p-3 text-muted-foreground border border-white/10
