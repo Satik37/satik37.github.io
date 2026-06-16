@@ -26,6 +26,24 @@ const skills = [
     'GitLab',
 ];
 
+const socialLinks = [
+    {
+        icon: FaGithub,
+        href: 'https://github.com/Satik37',
+        label: 'GitHub',
+    },
+    {
+        icon: FaLinkedin,
+        href: 'https://www.linkedin.com/in/saturnas-costantini-miliauskas-satik',
+        label: 'LinkedIn',
+    },
+    {
+        icon: FaInstagram,
+        href: 'https://www.instagram.com/satik_37/',
+        label: 'Instagram',
+    },
+];
+
 export const Hero = () => {
     const particles = useMemo(() => {
         return Array.from({ length: 37 }, (_, i) => ({
@@ -126,23 +144,7 @@ export const Hero = () => {
                             <span className='text-sm text-muted-foreground'>
                                 Find me here: 
                             </span>
-                            {[
-                                {
-                                    icon: FaGithub,
-                                    href: 'https://github.com/Satik37',
-                                    label: 'GitHub',
-                                },
-                                {
-                                    icon: FaLinkedin,
-                                    href: 'https://www.linkedin.com/in/saturnas-costantini-miliauskas-satik',
-                                    label: 'LinkedIn',
-                                },
-                                {
-                                    icon: FaInstagram,
-                                    href: 'https://www.instagram.com/satik_37/',
-                                    label: 'Instagram',
-                                },
-                            ].map((social) => {
+                            {socialLinks.map((social) => {
                                 const Icon = social.icon;
                                 
                                 return (
@@ -153,14 +155,12 @@ export const Hero = () => {
                                         rel='noopener noreferrer'
                                         aria-label={`Visit ${social.label} profile (opens in a new tab)`}
                                         title={social.label}
-                                        // className='p-2 rounded-full glass hover:bg-primary/10   hover:text-primary transition-all duration-300'
                                         className='group inline-flex items-center justify-center rounded-full glass p-3 text-muted-foreground border border-white/10
                                             transition-all duration-300 ease-out 
                                             hover:-translate-y-1 hover:scale-105 hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(32,178,166,0.18)]
                                             active:scale-95 active:bg-primary/20 active:border-primary/40 active:text-primary
                                             focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
                                     >
-                                        {/* <Icon className='w-6 h-6'/> */}
                                         <Icon
                                             className='w-5 h-5 transition-transform duration-300 group-hover:rotate-6 group-active:scale-90'
                                             aria-hidden='true'
