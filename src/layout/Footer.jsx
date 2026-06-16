@@ -35,7 +35,10 @@ export const Footer = () => {
 
           {/* Logo & Copyright */}
           <div className='text-center md:text-left'>
-            <a href='#' className='text-xl font-bold tracking-tight'>
+            <a
+                href='#'
+                className='text-xl font-bold tracking-tight transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 rounded-md'
+            >
               Satik37<span className='text-primary'>.</span>
             </a>
             <p className='text-sm text-muted-foreground mt-2'>
@@ -52,7 +55,7 @@ export const Footer = () => {
                     <a
                         key={link.href}
                         href={link.href}
-                        className='text-sm text-muted-foreground hover:text-foreground transition-colors'
+                        className='text-sm text-muted-foreground hover:text-foreground transition-colors duration-300'
                     >
                         {link.label}
                     </a>
@@ -74,7 +77,7 @@ export const Footer = () => {
                             title={social.label}
                             className='group inline-flex items-center justify-center rounded-full
                                 glass p-2.5 text-muted-foreground border border-white/10
-                                transition-all duration-300 ease-out
+                                transition-all duration-500 ease-out
                                 hover:-translate-y-0.5 hover:text-primary hover:bg-primary/10
                                 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
                         >
