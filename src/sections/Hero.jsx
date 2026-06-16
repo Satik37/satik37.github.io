@@ -1,4 +1,4 @@
-import { Button } from '@/components/Button';
+import { useMemo } from 'react';
 import { MessageSquareCode, ChevronDown, Download } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
@@ -27,27 +27,48 @@ const skills = [
 ];
 
 export const Hero = () => {
+    const particles = useMemo(() => {
+        return Array.from({ length: 37 }, (_, i) => ({
+            id: i,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            duration: `${15 + Math.random() * 20}s`,
+            delay: `${Math.random() * 2}s`,
+            opacity: 0.35 + Math.random() * 0.35,
+            size: 4 + Math.random() * 4,
+        }));
+    }, []);
+
     return (
-        <section id='home' className='relative min-h-screen flex items-center overflow-hidden'>
-            {/* Background*/}
+        <section
+            id='home'
+            className='relative min-h-screen flex items-center overflow-hidden'
+        >
+            {/* Background */}
             <div className='absolute inset-0'>
-                <img src='/satik_hero.png' alt='Satik37 Hero' className='w-full h-full object-cover opacity-40'/>
-                <div className='absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background'/>
+                <img
+                    src='/satik_hero.png'
+                    alt=' '
+                    className='w-full h-full object-cover opacity-40'
+                />
+                <div className='absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background' />
             </div>
 
             {/* Particles */}
             <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-                {[...Array(37)].map((_, i) => (
+                {particles.map((particle) => (
                     <div
-                        className='absolute w-1.5 h-1.5 rounded-full opacity-60'
+                        key={particle.id}
+                        className='absolute rounded-full'
                         style={{
-                            backgroundColor: `#20b2a6`,
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                            animation: `slow-drift ${
-                                15 + Math.random() * 20
-                                }s ease-in-out infinite`,
-                            animationDelay: `${Math.random() * 2}s`,
+                            backgroundColor: '#20b2a6',
+                            left: particle.left,
+                            top: particle.top,
+                            width: `${particle.size}px`,
+                            height: `${particle.size}px`,
+                            opacity: particle.opacity,
+                            animation: `slow-drift ${particle.duration} ease-in-out infinite`,
+                            animationDelay: particle.delay,
                         }}
                     />
                 ))}
@@ -130,7 +151,7 @@ export const Hero = () => {
                                         href={social.href}
                                         target='_blank'
                                         rel='noopener noreferrer'
-                                        aria-label={`Visit ${social.label} profile`}
+                                        aria-label={`Visit ${social.label} profile (opens in a new tab)`}
                                         title={social.label}
                                         // className='p-2 rounded-full glass hover:bg-primary/10   hover:text-primary transition-all duration-300'
                                         className='group inline-flex items-center justify-center rounded-full glass p-3 text-muted-foreground border border-white/10
