@@ -66,7 +66,7 @@ export const Hero = () => {
             <div className='absolute inset-0'>
                 <img
                     src='/satik_hero.png'
-                    alt=' '
+                    alt=''
                     className='w-full h-full object-cover opacity-40'
                 />
                 <div className='absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background' />
@@ -140,35 +140,46 @@ export const Hero = () => {
                         </div>
 
                         {/* Social links */}
-                        <div className='flex items-center gap-4 animate-fade-in animation-delay-400'>
-                            <span className='text-sm text-muted-foreground'>
-                                Find me here: 
-                            </span>
-                            {socialLinks.map((social) => {
-                                const Icon = social.icon;
+                        <nav
+                            aria-label='Social links'
+                            className='animate-fade-in animation-delay-400'
+                        >
+                            <div className='flex items-center gap-4'>
+                                <span className='text-sm text-muted-foreground'>
+                                    Find me here: 
+                                </span>
+                                <ul
+                                    className='flex items-center gap-4'
+                                    role='list'
+                                >
+                                    {socialLinks.map((social) => {
+                                        const Icon = social.icon;
                                 
-                                return (
-                                    <a
-                                        key={social.label}
-                                        href={social.href}
-                                        target='_blank'
-                                        rel='noopener noreferrer'
-                                        aria-label={`Visit ${social.label} profile (opens in a new tab)`}
-                                        title={social.label}
-                                        className='group inline-flex items-center justify-center rounded-full glass p-3 text-muted-foreground border border-white/10
-                                            transition-all duration-300 ease-out 
-                                            hover:-translate-y-1 hover:scale-105 hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(32,178,166,0.18)]
-                                            active:scale-95 active:bg-primary/20 active:border-primary/40 active:text-primary
-                                            focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
-                                    >
-                                        <Icon
-                                            className='w-5 h-5 transition-transform duration-300 group-hover:rotate-6 group-active:scale-90'
-                                            aria-hidden='true'
-                                        />
-                                    </a>
-                                );
-                            })}
-                        </div>
+                                        return (
+                                            <li key={social.href}>
+                                                <a
+                                                    href={social.href}
+                                                    target='_blank'
+                                                    rel='noopener noreferrer'
+                                                    aria-label={`Visit ${social.label} profile (opens in a new tab)`}
+                                                    title={social.label}
+                                                    className='group inline-flex items-center justify-center rounded-full glass p-3 text-muted-foreground border border-white/10
+                                                        transition-all duration-300 ease-out 
+                                                        hover:-translate-y-1 hover:scale-105 hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_20px_rgba(32,178,166,0.18)]
+                                                        active:scale-95 active:bg-primary/20 active:border-primary/40 active:text-primary
+                                                        focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+                                                >
+                                                    <Icon
+                                                        className='w-5 h-5 transition-transform duration-300 group-hover:rotate-6 group-active:scale-90'
+                                                        aria-hidden='true'
+                                                    />
+                                                </a>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
                     {/* Right Column - Pic */}
                     <div className='relative animate-fade-in animation-delay-300'>
@@ -186,7 +197,8 @@ export const Hero = () => {
                             <div className='relative glass rounded-3xl p-2 glow-border'>
                                 <img
                                     src='/profile_2.png'
-                                    alt='Saturnas C.M.'
+                                    alt='Portrait of Saturnas Costantini Miliauskas'
+                                    fetchPriority='high'
                                     className='w-full object-cover opacity-90 rounded-2xl'
                                 />
 
