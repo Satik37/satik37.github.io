@@ -1,4 +1,3 @@
-import { Button } from '@/components/Button';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -33,7 +32,11 @@ export const Navbar = () => {
                 className='container mx-auto px-6 flex items-center justify-between'
                 aria-label='Main navigation'
             >
-                <a href='#' className='text-xl font-bold tracking-tight hover:text-primary transition-colors'>
+                <a
+                    href='#'
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className='text-xl font-bold tracking-tight hover:text-primary transition-colors'
+                >
                     Satik37<span className='text-primary'>.</span>
                 </a>
                 
@@ -44,7 +47,7 @@ export const Navbar = () => {
                             <a
                                 href={link.href}
                                 key={link.href}
-                                className='px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface transition-colors'
+                                className='px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface transition-all duration-300'
                             >
                                 {link.label}
                             </a>
@@ -73,7 +76,6 @@ export const Navbar = () => {
                     onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                     aria-expanded={isMobileMenuOpen}
                     aria-controls='mobile-menu'
-                    aria-haspopup='true'
                     aria-label={isMobileMenuOpen
                         ? 'Close navigation menu'
                         : 'Open navigation menu'
@@ -101,21 +103,24 @@ export const Navbar = () => {
             </nav>
 
             {/* Mobile Nav Menu */}
-            {isMobileMenuOpen && (
-                <div
-                    id='mobile-menu'
-                    className='md:hidden glass-strong animate-fade-in'
-                >
-                    <div className='container mx-auto px-6 py-6 flex flex-col gap-4'>
-                        {navLinks.map((link) => (
-                            <a
-                                href={link.href}
-                                key={link.href}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className='text-lg text-muted-foreground hover:text-foreground py-2'
-                            >
-                                {link.label}
-                            </a>
+            <div
+                id='mobile-menu'
+                className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
+                    isMobileMenuOpen
+                    ? 'max-h-96 opacity-100 translate-y-0 glass-strong'
+                    : 'max-h-0 opacity-0 -translate-y-2 pointer-events-none'
+                }`}
+            >
+                <div className='container mx-auto px-6 py-6 flex flex-col gap-4'>
+                    {navLinks.map((link) => (
+                        <a
+                            href={link.href}
+                            key={link.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className='text-lg text-muted-foreground hover:text-foreground py-2 transition-colors'
+                        >
+                            {link.label}
+                        </a>
                     ))}
 
                     <a
@@ -127,7 +132,6 @@ export const Navbar = () => {
                     </a>
                 </div>
             </div>
-            )}
         </header>
     );
 }
