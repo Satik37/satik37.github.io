@@ -72,10 +72,11 @@ export const Footer = () => {
                             rel='noopener noreferrer'
                             aria-label={`${social.label} (opens in a new tab)`}
                             title={social.label}
-                            className='group inline-flex items-center justify-center rounded-full glass p-2.5 text-muted-foreground border border-white/10
-                    transition-all duration-300 ease-out
-                    hover:-translate-y-0.5 hover:text-primary hover:bg-primary/10
-                    focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
+                            className='group inline-flex items-center justify-center rounded-full
+                                glass p-2.5 text-muted-foreground border border-white/10
+                                transition-all duration-300 ease-out
+                                hover:-translate-y-0.5 hover:text-primary hover:bg-primary/10
+                                focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background'
                         >
                             <Icon
                                 className='w-6 h-6'

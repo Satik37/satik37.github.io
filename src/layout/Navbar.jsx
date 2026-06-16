@@ -24,12 +24,16 @@ export const Navbar = () => {
     }, []);
 
     return (
-        <header className={`fixed top-0 left-0 right-0 transition-all duration-800 ${
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-800 ${
                     isScrolled
                         ? 'glass-navbar py-3'
                         : 'bg-transparent py-5'
-                } bh-transparent py-5 z-50`}>
-            <nav className='container mx-auto px-6 flex items-center justify-between'>
+                }`}
+        >
+            <nav
+                className='container mx-auto px-6 flex items-center justify-between'
+                aria-label='Main navigation'
+            >
                 <a href='#' className='text-xl font-bold tracking-tight hover:text-primary'>
                     Satik37<span className='text-primary'>.</span>
                 </a>
