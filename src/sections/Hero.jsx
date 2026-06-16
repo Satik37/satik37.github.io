@@ -90,8 +90,12 @@ export const Hero = () => {
                                 Contact Me
                                 <MessageSquareCode className='w-5 h-5' aria-hidden='true' />
                             </a>
-                            <AnimatedBorderButton>
-                                <Download className='w-5 h-5'/>
+                            <AnimatedBorderButton
+                                as='a'
+                                href='/CV-SCM.pdf'
+                                download='CV-Saturnas-Costantini-Miliauskas.pdf'
+                            >
+                                <Download className='w-5 h-5'aria-hidden='true'/>
                                 Download CV
                             </AnimatedBorderButton>
                         </div>
@@ -162,7 +166,7 @@ export const Hero = () => {
                                 <img
                                     src='/profile_2.png'
                                     alt='Saturnas C.M.'
-                                    className='w-full aspect-ratio: 4/5 object-cover opacity-90 rounded-2xl'
+                                    className='w-full object-cover opacity-90 rounded-2xl'
                                 />
 
                                 {/* Floating Badge */}
