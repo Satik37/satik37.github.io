@@ -130,28 +130,22 @@ Every push to the `main` branch:
 
 ## Roadmap
 
-- 'outside of code'
-- 'contact me'
-- footer
 - optimize for Firefox
-- better accessibility and performance
-- switch to a self-hosted, privacy-friendly analytics tool
 - multilingual content
-- implement backend
+- introduce backend
+- switch to a self-hosted, privacy-friendly analytics tool
 - replace the temporary contact flow with a backend-based system
-- visual polishing
 - new and more elaborate/complex animations where they add value
 
 ## TODO:
 
 - fix 'view all projects' button
-- add CV
 - refine interests
 - review and polish texts
 - optimize performance
 - optimize accessibility
 - optimize images
-- switch to a self-hosted, privacy-friendly analytics tool
+- visual polishing
 
 ## Contact
 
