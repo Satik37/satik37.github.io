@@ -131,8 +131,8 @@ export const Hero = () => {
                             </a>
                             <AnimatedBorderButton
                                 as='a'
-                                href='/CV-SCM.pdf'
-                                download='CV-Saturnas-Costantini-Miliauskas.pdf'
+                                href='/CV_ENG_Saturnas Costantini Miliauskas.pdf'
+                                download='CV_ENG_Saturnas-Costantini-Miliauskas.pdf'
                             >
                                 <Download className='w-5 h-5'aria-hidden='true'/>
                                 Download CV
