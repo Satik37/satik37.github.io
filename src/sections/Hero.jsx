@@ -67,6 +67,10 @@ export const Hero = () => {
                 <img
                     src='/satik_hero.png'
                     alt=''
+                    aria-hidden='true'
+                    width={1920}
+                    height={1080}
+                    decoding='async'
                     className='w-full h-full object-cover opacity-40'
                 />
                 <div className='absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background' />
@@ -198,6 +202,8 @@ export const Hero = () => {
                                 <img
                                     src='/profile_2.png'
                                     alt='Portrait of Saturnas Costantini Miliauskas'
+                                    width={768}
+                                    height={960}
                                     fetchPriority='high'
                                     className='w-full object-cover opacity-90 rounded-2xl'
                                 />
