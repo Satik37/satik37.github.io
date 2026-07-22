@@ -205,6 +205,7 @@ export const Hero = () => {
                                     width={768}
                                     height={960}
                                     fetchPriority='high'
+                                    decoding='async'
                                     className='w-full object-cover opacity-90 rounded-2xl'
                                 />
 

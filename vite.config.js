@@ -1,23 +1,53 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-// import path from 'path'
-// per usare __dirname in ambiente ES module
 import { fileURLToPath } from 'node:url';
-
-// ricrea __dirname in ambiente ES module
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 // https://vite.dev/config/
 export default defineConfig({
   // for github deployment
   base: '/',
   
-  plugins: [react(), tailwindcss()],
+  plugins: 
+    [
+      react(),
+      tailwindcss(),
+      ViteImageOptimizer({
+        png: {
+          quality: 80,
+        },
+        jpg: {
+          quality: 80,
+        },
+        jpeg: {
+          quality: 80,
+        },
+        webp: {
+          quality: 80,
+        },
+        avif: {
+          quality: 65,
+        },
+        gif: {
+          quality: 80,
+        },
+        svg: {
+          plugins: [
+            {
+              name: 'removeViewBox',
+              active: false
+            },
+            {
+              name: 'sortAttrs',
+            }
+          ]
+        }
+      })
+    ],
+
   resolve: {
     alias: {
-      // '@': path.resolve(__dirname, './src'),
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
