@@ -11,7 +11,7 @@ function App() {
   return (
     <div className='min-h-screen overflow-x-hidden'>
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
         <Projects />

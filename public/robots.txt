@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://satik37.github.io/sitemap.xml
