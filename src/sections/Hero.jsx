@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useRef, useLayoutEffect, useState } from 'react';
 import { MessageSquareCode, ChevronDown, Download } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
@@ -44,17 +44,33 @@ const socialLinks = [
     },
 ];
 
+function generateParticles() {
+    return Array.from({ length: 37 }, (_, index) => ({
+        id: index,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        duration: `${15 + Math.random() * 20}s`,
+        delay: `${Math.random() * 2}s`,
+        opacity: 0.35 + Math.random() * 0.35,
+        size: 4 + Math.random() * 4,
+    }));
+}
+
 export const Hero = () => {
-    const particles = useMemo(() => {
-        return Array.from({ length: 37 }, (_, i) => ({
-            id: i,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            duration: `${15 + Math.random() * 20}s`,
-            delay: `${Math.random() * 2}s`,
-            opacity: 0.35 + Math.random() * 0.35,
-            size: 4 + Math.random() * 4,
-        }));
+    const [particles, setParticles] = useState([]);
+    const particlesRef = useRef(null);
+
+    useLayoutEffect(() => {
+        if (!particlesRef.current) {
+            const generated = generateParticles();
+            particlesRef.current = generated;
+            setParticles(generated);
+        }
+    }, []);
+
+    const handleScrollToAbout = useCallback((e) => {
+        e.preventDefault();
+        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
     }, []);
 
     return (
@@ -250,6 +266,7 @@ export const Hero = () => {
                 animate-fade-in animation-delay-800'>
                 <a
                     href='#about'
+                    onClick={handleScrollToAbout}
                     className='flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors'
                     title='Scroll down'
                     aria-label='Scroll down'

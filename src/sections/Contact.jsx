@@ -1,6 +1,6 @@
+import { useCallback, useState } from 'react';
 import { AlertCircle, CheckCircle, SendHorizontal } from 'lucide-react';
 import { Button } from '@/components/Button';
-import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
@@ -16,8 +16,7 @@ export const Contact = () => {
         message: ''
     })
 
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = useCallback(async (e) => {
         e.preventDefault();
 
         setIsLoading(true);
@@ -71,7 +70,7 @@ export const Contact = () => {
         } finally {
             setIsLoading(false);
         }
-    };
+    }, [formData]);
 
     return (
         <section id='contact' className='py-32 relative overflow-hidden'>

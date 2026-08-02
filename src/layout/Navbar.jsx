@@ -1,5 +1,5 @@
+import { useState, useEffect, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useState, useEffect } from 'react';
 
 const navLinks = [
     {href: '#about', label: 'About'},
@@ -12,14 +12,14 @@ export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
+    const handleScroll = useCallback(() => {
+        setIsScrolled(window.scrollY > 50);
+    }, []);
 
+    useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [handleScroll]);
 
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-800 ${
