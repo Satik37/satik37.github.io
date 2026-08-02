@@ -1,5 +1,5 @@
+import { useCallback, useState } from 'react';
 import { Orbit, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
 
 const interests = [
     {
@@ -96,13 +96,13 @@ const interests = [
 export const Interests = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const next = () => {
+    const next = useCallback(() => {
         setActiveIndex((prev) => (prev + 1) % interests.length)
-    }
+    }, [])
 
-    const previous = () => {
+    const previous = useCallback(() => {
         setActiveIndex((prev) => (prev - 1 + interests.length) % interests.length)
-    }
+    }, [])
 
     return (
         <section
