@@ -1,13 +1,35 @@
-{/* TODO: fix a */}
+import { ReactNode, MouseEvent } from 'react';
+
+interface AnimatedBorderButtonProps {
+  children: ReactNode;
+  as?: 'button' | 'a';
+  className?: string;
+  href?: string;
+  download?: string;
+onClick?: (_event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+  disabled?: boolean;
+}
 
 export const AnimatedBorderButton = ({
   children,
   as = 'button',
   className = '',
+  href,
+  download,
+  onClick,
+  disabled = false,
   ...props
-}) => {
+}: AnimatedBorderButtonProps) => {
   const Component = as;
-  
+
+  const handleClick = (event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    if (disabled) {
+      event.preventDefault();
+      return;
+    }
+    onClick?.(event);
+  };
+
   return (
     <Component
       className={`relative bg-transparent border border-border
@@ -17,6 +39,10 @@ export const AnimatedBorderButton = ({
       disabled:opacity-50 disabled:cursor-not-allowed group px-8 py-4
       text-lg font-medium rounded-full overflow-visible
       animated-border cursor-pointer inline-flex items-center justify-center ${className}`}
+      href={href}
+      download={download}
+      onClick={handleClick}
+      disabled={as === 'button' ? disabled : undefined}
       {...props}
     >
       {/* Animated SVG Border */}

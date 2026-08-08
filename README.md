@@ -8,13 +8,13 @@
     ____\_\  \ \__\ \__\   \ \__\ \ \__\ \__\\ \__\|\_______Y__/ /  
    |\_________\|__|\|__|    \|__|  \|__|\|__| \|__|\|_______|__|/   
    \|_________|                                                     
-                                                                    
-                                                                            
+                                                                     
+                                                                             
 ``` 
 
-This repository contains my personal developer portfolio built with React, Vite and Tailwind CSS v4 (the new version). Deployed on GitHub Pages.
+This repository contains my personal developer portfolio. It is a single-page application built with **React** (UI), written in **TypeScript** (language), styled with **Tailwind CSS v4**, and bundled/served by **Vite**. Deployed on GitHub Pages.
 
-The site is currently being rebuilt from scratch. I’m using it not only to present my work better but also to improve how I structure frontend projects, how I handle and optimize styling and how I think about visual communication with all the major and minor implications.
+The site is currently being rebuilt from scratch. I'm using it not only to present my work better but also to improve how I structure frontend projects, how I handle and optimize styling and how I think about visual communication with all the major and minor implications.
 
 ## Why this project exists
 
@@ -25,21 +25,38 @@ This portfolio is meant to:
 - be a personal site that feels cleaner and more intentional than a simple list of links
 - act as a central place to collect web, mobile and game-related work
 
-## Current status
+## How the tech stack fits together
 
-This is still a work in progress.
+| Layer | Tool | Role |
+|-------|------|------|
+| **Language** | TypeScript | Adds types on top of JavaScript. All source files are `.tsx` |
+| **UI library** | React 19 | Renders the components. JSX markup, hooks, state, effects |
+| **Styling** | Tailwind CSS v4 | Utility-first CSS framework. Used for all layout and visual styling |
+| **Build tool** | Vite | Dev server, bundling, HMR, and production builds |
+| **Icons** | Lucide React | Icon components used throughout the site |
+| **Hosting** | GitHub Pages | Static site hosting |
+| **Deployment** | GitHub Actions | CI/CD pipeline: lint → typecheck → build → deploy |
+| **Analytics** | GoatCounter | Privacy-friendly analytics |
+| **Contact** | EmailJS | Temporary client-side email service for the contact form |
 
-Some sections may be incomplete, under revision, or visually inconsistent while I keep rebuilding and refining the project.
+In practice: I write **React components in TypeScript**, style them with **Tailwind classes**, and **Vite** bundles everything into static files that get deployed to GitHub Pages.
 
-## Tech stack
+## Why TypeScript
 
-- **Frontend:** React
-- **Build tool:** Vite
-- **Styling:** Tailwind CSS v4, Lucide React
-- **Hosting:** GitHub Pages
-- **Deployment:** GitHub Actions
-- **Analytics:** GoatCounter
-- **Contact system:** EmailJS (temporary)
+The project was originally written in JavaScript (`.jsx`). It has been migrated to TypeScript (`.tsx`) for several reasons:
+
+- **Type safety at build time** — catching errors before they reach the browser, especially around props, event handlers, and data shapes
+- **Better developer experience** — autocomplete, inline documentation, and refactoring tools that understand the codebase
+- **Self-documenting code** — interfaces for props and data structures make the intent of each component explicit
+- **Confidence in refactors** — the compiler verifies that changes don't break other parts of the codebase
+- **Modern tooling alignment** — the ecosystem (Vite, ESLint, React) has first-class TypeScript support
+
+The migration also included:
+
+- typed environment variables (`vite-env.d.ts`)
+- typed constants for social links, navigation, and site config
+- interfaces for all component props and data models
+- `tsc --noEmit` as a CI check alongside ESLint
 
 ## Analytics and privacy
 
@@ -51,9 +68,7 @@ I picked it because it aligns with how I want this portfolio to behave:
 - no cookies, cookie banners, consent pop-ups or cross-site identifiers
 - only high-level, aggregate metrics (page views, referrers, countries)
 
-I’m using it for analytics instead of a more intrusive solution. It gives me simple, aggregate stats (page views, referrers, countries) without storing IP addresses, cookies, or unique IDs.
-
-One downside is that GoatCounter’s hosted domains (`goatcounter.com` and `gc.zgo.at`) are blocked by many adblockers, so some visits are not recorded.
+One downside is that GoatCounter's hosted domains (`goatcounter.com` and `gc.zgo.at`) are blocked by many adblockers, so some visits are not recorded.
 I plan to switch to a self-hosted, privacy-friendly solution in the future to improve reliability while keeping the same respect for visitors' privacy.
 
 ## Contact form
@@ -85,19 +100,6 @@ The frontend can still remain deployed on GitHub Pages, while the backend will l
 
 ## Running the project locally
 
-
-## What I’m focusing on
-
-This build is helping me to work on:
-
-- clean frontend starting from the structure
-- real visual consistency
-- various layout experimentation
-- projects presentation
-- accessibility and performance improvements
-
-## Running the project locally
-
 ### Requirements
 
 - [Node.js](https://nodejs.org/) (LTS recommended)
@@ -115,12 +117,32 @@ npm i
 npm run dev
 ```
 
+### Lint and type check
+
+```bash
+npm run lint
+npm run typecheck
+```
+
+### Format code
+
+```bash
+npm run format
+```
+
+### Production build
+
+```bash
+npm run build
+```
+
 ## Deployment
 
 The site is deployed to GitHub Pages through GitHub Actions.
 
 Every push to the `main` branch:
 - installs dependencies
+- runs lint and type checks
 - runs the production build
 - publishes the generated output to GitHub Pages
 
@@ -130,22 +152,11 @@ Every push to the `main` branch:
 
 ## Roadmap
 
-- optimize for Firefox
 - multilingual content
 - introduce backend
 - switch to a self-hosted, privacy-friendly analytics tool
 - replace the temporary contact flow with a backend-based system
 - new and more elaborate/complex animations where they add value
-
-## TODO:
-
-- fix 'view all projects' button
-- refine interests
-- review and polish texts
-- optimize performance
-- optimize accessibility
-- optimize images
-- visual polishing
 
 ## Contact
 

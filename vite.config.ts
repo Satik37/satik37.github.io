@@ -14,36 +14,19 @@ export default defineConfig({
       react(),
       tailwindcss(),
       ViteImageOptimizer({
-        png: {
-          quality: 80,
-        },
-        jpg: {
-          quality: 80,
-        },
-        jpeg: {
-          quality: 80,
-        },
-        webp: {
-          quality: 80,
-        },
-        avif: {
-          quality: 65,
-        },
-        gif: {
-          quality: 80,
-        },
+        png: { quality: 80 },
+        jpg: { quality: 80 },
+        jpeg: { quality: 80 },
+        webp: { quality: 80 },
+        avif: { quality: 65 },
+        gif: { quality: 80 },
         svg: {
           plugins: [
-            {
-              name: 'removeViewBox',
-              active: false
-            },
-            {
-              name: 'sortAttrs',
-            }
+            { name: 'removeViewBox', params: false },
+            { name: 'sortAttrs' }
           ]
         }
-      })
+      } as Record<string, unknown>)
     ],
 
   resolve: {
