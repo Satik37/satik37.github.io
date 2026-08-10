@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect, useCallback, type MouseEvent } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, Calculator } from 'lucide-react';
 import { navLinks } from '@/constants';
 
 // Sections to track for scroll-spy: nav links + home + contact
@@ -22,36 +23,58 @@ const getActiveSection = (): string => {
   return current;
 };
 
+const scrollToSection = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+};
+
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 50);
   const [activeSection, setActiveSection] = useState(() => getActiveSection());
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isCalculatorPage = location.pathname === '/jet-hr-salary-calculator';
 
   const handleScroll = useCallback(() => {
-    setIsScrolled(window.scrollY > 50);
-    setActiveSection(getActiveSection());
-  }, []);
+    if (!isCalculatorPage) {
+      setIsScrolled(window.scrollY > 50);
+      setActiveSection(getActiveSection());
+    }
+  }, [isCalculatorPage]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
+  const handleNavClick = (e: MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    if (isCalculatorPage) {
+      navigate('/');
+      // Wait for the home page to render before scrolling
+      setTimeout(() => scrollToSection(sectionId), 100);
+    } else {
+      scrollToSection(sectionId);
+    }
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-800 ${
-      isScrolled ? 'glass-navbar py-3' : 'bg-transparent py-5'
+      isScrolled || isCalculatorPage ? 'glass-navbar py-3' : 'bg-transparent py-5'
     }`}>
       <nav
         className='container mx-auto px-6 flex items-center justify-between'
         aria-label='Main navigation'
       >
-        <a
-          href='#home'
+        <Link
+          to='/'
           onClick={() => setIsMobileMenuOpen(false)}
           className='text-xl font-bold tracking-tight hover:text-primary transition-colors'
         >
           Satik37<span className='text-primary'>.</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <div className='hidden md:flex items-center gap-1'>
@@ -63,6 +86,7 @@ export const Navbar = () => {
                 <a
                   href={link.href}
                   key={link.href}
+                  onClick={(e) => handleNavClick(e, link.href.slice(1))}
                   className={`px-4 py-2 text-sm rounded-full transition-all duration-300 ${
                     isActive
                       ? 'text-primary bg-primary/10'
@@ -78,9 +102,19 @@ export const Navbar = () => {
         </div>
 
         {/* CTA Button */}
-        <div className='hidden md:block'>
+        <div className='hidden md:flex items-center gap-4'>
+          <Link
+            to='/jet-hr-salary-calculator'
+            className='inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-300'
+            aria-label='Open Jet HR salary calculator'
+            title='Jet HR Salary Calculator'
+          >
+            <Calculator className='w-4 h-4' aria-hidden='true' />
+            Salary Calculator
+          </Link>
           <a
             href='#contact'
+            onClick={(e) => handleNavClick(e, 'contact')}
             className='inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
           >
             Contact Me
@@ -134,7 +168,7 @@ export const Navbar = () => {
               <a
                 href={link.href}
                 key={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href.slice(1))}
                 className={`text-lg py-2 transition-colors ${
                   isActive
                     ? 'text-primary'
@@ -149,7 +183,7 @@ export const Navbar = () => {
 
           <a
             href='#contact'
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={(e) => handleNavClick(e, 'contact')}
             className='inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
           >
             Contact Me

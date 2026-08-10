@@ -70,10 +70,13 @@ export const Hero = () => {
     }
   }, []);
 
-  const handleScrollToAbout = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+  const handleScrollToSection = useCallback(
+    (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    },
+    []
+  );
 
   const duplicatedSkills = useMemo(() => [...skills, ...skills], []);
 
@@ -154,6 +157,7 @@ export const Hero = () => {
             <div className='flex flex-wrap gap-4 animate-fade-in animation-delay-300'>
               <a
                 href='#contact'
+                onClick={handleScrollToSection('contact')}
                 className='inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-medium bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary'
               >
                 Contact Me
@@ -276,7 +280,7 @@ export const Hero = () => {
         animate-fade-in animation-delay-800'>
         <a
           href='#about'
-          onClick={handleScrollToAbout}
+          onClick={handleScrollToSection('about')}
           className='flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors'
           title='Scroll down'
           aria-label='Scroll down'

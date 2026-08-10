@@ -136,6 +136,52 @@ npm run format
 npm run build
 ```
 
+## Jet HR Annual Net Salary Calculator
+
+The portfolio includes a product prototype: an annual net salary calculator for a standard Italian employee profile.
+
+### Profile
+
+- Fiscal year: 2026
+- Private-sector permanent white-collar employee (impiegato a tempo indeterminato), full-time
+- Resident in Milan (Lombardia)
+- No dependents, no family-related deductions, no other income, no special tax benefits
+
+### Supported RAL range
+
+- 15,000 - 100,000 EUR
+- Values outside this range are rejected with an informational message
+- This is a scope limit of the prototype, not a general fiscal limit
+
+### Tax rules implemented (2026)
+
+- **INPS**: 9.19% base employee contribution
+- **IRPEF**: progressive — 23% up to 28,000; 33% from 28,000 to 50,000; 43% above 50,000
+- **Employment income deduction (art. 13 TUIR)**:
+  - up to 15,000 EUR: 1,955 * (income / 15,000), min 690 EUR
+  - 15,000-28,000 EUR: 1,910 + 1,190 * (28,000 - income) / 13,000
+  - 28,000-50,000 EUR: 1,910 * (50,000 - income) / 22,000
+  - above 50,000 EUR: 0
+- **Regional surcharge (Lombardia)**: progressive single rate applied to the WHOLE taxable income, based on the bracket (marginal rates of previous brackets are NOT summed) — 1.23% / 1.58% / 1.72% / 1.73%
+- **Municipal surcharge (Milano)**: 0.8%, exempt up to 23,000 EUR; above the threshold the 0.8% applies to the whole income (no franchise)
+- **Monthly net**: annual net divided by 13 (annualized monthly average)
+
+### Reconciliation
+
+```
+net annual = RAL - INPS - net IRPEF - regional surcharge - municipal surcharge
+```
+
+### Excluded in this version (documented limitations)
+
+- Additional 1% INPS surcharge (above ~48,000 EUR)
+- INPS contribution cap (massimale)
+- Apprenticeship and other contribution regimes
+- IRPEF benefit sterilization above 200,000 EUR
+- Family-related deductions (spouse, children, family allowances)
+- TFR (severance pay)
+- Any income other than the RAL
+
 ## Deployment
 
 The site is deployed to GitHub Pages through GitHub Actions.

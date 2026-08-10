@@ -1,10 +1,18 @@
-import { useState, useEffect, useCallback } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { useState, useEffect, useCallback, type MouseEvent } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ArrowUp, Calculator } from 'lucide-react';
 import { socialLinks, footerLinks } from '@/constants';
+
+const scrollToSection = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+};
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isCalculatorPage = location.pathname === '/jet-hr-salary-calculator';
 
   const handleScroll = useCallback(() => {
     setShowBackToTop(window.scrollY > 400);
@@ -19,6 +27,18 @@ export const Footer = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const handleFooterLinkClick = (e: MouseEvent, href: string) => {
+    e.preventDefault();
+    const sectionId = href.slice(1);
+
+    if (isCalculatorPage) {
+      navigate('/');
+      setTimeout(() => scrollToSection(sectionId), 100);
+    } else {
+      scrollToSection(sectionId);
+    }
+  };
+
   return (
     <footer className='py-12 border-t border-border relative'>
       <div className='container mx-auto px-6'>
@@ -26,12 +46,12 @@ export const Footer = () => {
 
           {/* Logo & Copyright */}
           <div className='text-center md:text-left'>
-            <a
-              href='#home'
+            <Link
+              to='/'
               className='text-xl font-bold tracking-tight transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 rounded-md'
             >
               Satik37<span className='text-primary'>.</span>
-            </a>
+            </Link>
             <p className='text-sm text-muted-foreground mt-2'>
               © {currentYear} Saturnas Costantini Miliauskas. All rights reserved.
             </p>
@@ -46,11 +66,19 @@ export const Footer = () => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleFooterLinkClick(e, link.href)}
                 className='text-sm text-muted-foreground hover:text-foreground transition-colors duration-300'
               >
                 {link.label}
               </a>
             ))}
+            <Link
+              to='/jet-hr-salary-calculator'
+              className='text-sm text-muted-foreground hover:text-primary transition-colors duration-300 inline-flex items-center gap-1.5'
+            >
+              <Calculator className='w-3.5 h-3.5' aria-hidden='true' />
+              Jet HR Calculator
+            </Link>
           </nav>
 
           {/* Social Links */}

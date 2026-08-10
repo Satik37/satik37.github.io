@@ -1,0 +1,36 @@
+import { Info } from "lucide-react";
+
+const assumptions = [
+  "Fiscal year: 2026",
+  "Employee is a permanent white-collar worker (impiegato a tempo indeterminato), full-time, private sector",
+  "Employee lives in Milan (Lombardia region)",
+  "No dependents, no family-related deductions, no other income, no special tax benefits",
+  "INPS employee contribution rate: 9.19% (base rate only)",
+  "Excluded in this version: additional 1% INPS surcharge, contribution cap (massimale), apprenticeship and other contribution regimes",
+  "IRPEF progressive brackets 2026: 23% / 33% / 43%",
+  "Employment income deduction (art. 13 TUIR) applied",
+  "Regional surcharge (Lombardia): progressive single rate on the whole taxable income (1.23% / 1.58% / 1.72% / 1.73%) — marginal rates of previous brackets are NOT summed",
+  "Municipal surcharge (Milano): 0.8%, exempt up to 23,000 EUR; above the threshold the rate applies to the whole income (no franchise)",
+  "Monthly net is the annual net divided by 13 (annualized monthly average)",
+  "Supported RAL range: 15,000 - 100,000 EUR (scope limit of the prototype, not a general fiscal limit)",
+  "TFR (severance pay) is not considered",
+];
+
+export const AssumptionsPanel = () => {
+  return (
+    <div className="glass rounded-2xl p-6">
+      <div className="flex items-center gap-2 mb-4">
+        <Info className="w-5 h-5 text-primary" aria-hidden="true" />
+        <h3 className="text-lg font-semibold">Assumptions & Simplifications</h3>
+      </div>
+      <ul className="space-y-2">
+        {assumptions.map((assumption, index) => (
+          <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <span className="text-primary mt-1 shrink-0" aria-hidden="true">•</span>
+            <span>{assumption}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
