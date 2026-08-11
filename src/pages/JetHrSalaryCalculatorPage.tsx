@@ -9,6 +9,8 @@ export const JetHrSalaryCalculatorPage = () => {
   const {
     annualGross,
     setAnnualGross,
+    paymentPeriods,
+    setPaymentPeriods,
     result,
     isCalculated,
     error,
@@ -27,19 +29,19 @@ export const JetHrSalaryCalculatorPage = () => {
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-10"
         >
           <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-          Back to portfolio
+          Torna al portfolio
         </a>
 
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
-              Jet HR · Product Prototype
+              Jet HR · Prototipo
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
-              Annual Net Salary Calculator
+              Calcolatore dello stipendio netto da RAL
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Enter your annual gross salary (RAL) and see your annual and monthly net pay, with a full breakdown of every tax and contribution deducted.
+              Inserisci la tua Retribuzione Annua Lorda (RAL) e ottieni il netto annuale e il netto medio mensile, con il dettaglio di ogni trattenuta e detrazione.
             </p>
           </div>
 
@@ -48,6 +50,8 @@ export const JetHrSalaryCalculatorPage = () => {
               <SalaryForm
                 annualGross={annualGross}
                 setAnnualGross={setAnnualGross}
+                paymentPeriods={paymentPeriods}
+                setPaymentPeriods={setPaymentPeriods}
                 onCalculate={handleCalculate}
                 onReset={handleReset}
                 isCalculated={isCalculated}

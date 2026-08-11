@@ -1,5 +1,6 @@
 export interface SalaryInput {
   annualGrossSalary: number;
+  paymentPeriods: number;
 }
 
 export interface TaxBracket {
@@ -15,6 +16,7 @@ export interface DeductionResult {
 
 export interface SalaryBreakdown {
   annualGross: number;
+  paymentPeriods: number;
   monthlyGross: number;
   annualNet: number;
   monthlyNet: number;
@@ -24,6 +26,7 @@ export interface SalaryBreakdown {
   regionalSurcharge: number;
   municipalSurcharge: number;
   employmentDeduction: number;
+  additionalEmploymentDeduction: number;
   effectiveTaxRate: number;
   netPercentage: number;
 }
@@ -37,5 +40,6 @@ export interface CalculationResult {
     regionalSurcharge: DeductionResult;
     municipalSurcharge: DeductionResult;
     employmentDeduction: DeductionResult;
+    additionalEmploymentDeduction: DeductionResult;
   };
 }

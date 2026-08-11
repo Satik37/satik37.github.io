@@ -1,14 +1,16 @@
 import { calculateInps } from "./calculateInps";
 import { calculateIrpefGross } from "./calculateIrpef";
 import { calculateEmploymentDeduction } from "./calculateEmploymentDeduction";
+import { calculateAdditionalEmploymentDeduction } from "./calculateAdditionalEmploymentDeduction";
 import { calculateRegionalSurcharge, calculateMunicipalSurcharge } from "./calculateSurcharges";
-import { MONTHS_PER_YEAR } from "../constants";
 import type { CalculationResult, SalaryInput } from "../types";
 
 const round2 = (n: number): number => Math.round(n * 100) / 100;
 
 export function calculateSalary(input: SalaryInput): CalculationResult {
-  const { annualGrossSalary } = input;
+  const { annualGrossSalary, paymentPeriods } = input;
+  // Guard against division by zero / invalid periods
+  const periods = paymentPeriods > 0 ? paymentPeriods : 13;
 
   // 1. INPS employee contributions (9.19% of gross)
   const inps = round2(calculateInps(annualGrossSalary));
@@ -21,7 +23,16 @@ export function calculateSalary(input: SalaryInput): CalculationResult {
 
   // 3. Employment income deduction (art. 13 TUIR) - applies against IRPEF, not INPS
   const employmentDeduction = round2(calculateEmploymentDeduction(taxableIncome));
-  const irpefNet = Math.max(0, round2(irpefGross - employmentDeduction));
+
+  // 3b. Additional employment income deduction (25,000-35,000 EUR bracket)
+  const additionalEmploymentDeduction = round2(
+    calculateAdditionalEmploymentDeduction(taxableIncome)
+  );
+
+  const irpefNet = Math.max(
+    0,
+    round2(irpefGross - employmentDeduction - additionalEmploymentDeduction)
+  );
 
   // 4. Regional & municipal surcharges
   const regionalSurcharge = round2(calculateRegionalSurcharge(taxableIncome));
@@ -35,17 +46,18 @@ export function calculateSalary(input: SalaryInput): CalculationResult {
 
   const annualNet = round2(annualGrossSalary - totalDeductions);
 
-  // Monthly net = annual net / 13 (annualized monthly average)
-  const monthlyNet = round2(annualNet / MONTHS_PER_YEAR);
+  // Monthly net = annual net / selected payment periods (annualized monthly average)
+  const monthlyNet = round2(annualNet / periods);
 
   const effectiveTaxRate = round2((totalDeductions / annualGrossSalary) * 100);
   const netPercentage = round2((annualNet / annualGrossSalary) * 100);
 
   return {
-    input: { annualGrossSalary: round2(annualGrossSalary) },
+    input: { annualGrossSalary: round2(annualGrossSalary), paymentPeriods: periods },
     breakdown: {
       annualGross: round2(annualGrossSalary),
-      monthlyGross: round2(annualGrossSalary / MONTHS_PER_YEAR),
+      paymentPeriods: periods,
+      monthlyGross: round2(annualGrossSalary / periods),
       annualNet,
       monthlyNet,
       totalDeductions,
@@ -54,13 +66,14 @@ export function calculateSalary(input: SalaryInput): CalculationResult {
       regionalSurcharge,
       municipalSurcharge,
       employmentDeduction,
+      additionalEmploymentDeduction,
       effectiveTaxRate,
       netPercentage,
     },
     deductions: {
       irpef: {
         amount: irpefNet,
-        description: "IRPEF net after employment deduction",
+        description: "IRPEF net after employment and additional deductions",
       },
       inps: {
         amount: inps,
@@ -77,6 +90,10 @@ export function calculateSalary(input: SalaryInput): CalculationResult {
       employmentDeduction: {
         amount: employmentDeduction,
         description: "Detrazione lavoro dipendente (art. 13 TUIR)",
+      },
+      additionalEmploymentDeduction: {
+        amount: additionalEmploymentDeduction,
+        description: "Ulteriore detrazione lavoro dipendente (25.000-35.000 EUR)",
       },
     },
   };

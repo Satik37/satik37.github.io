@@ -13,25 +13,25 @@ export const ResultSummary = ({ result }: ResultSummaryProps) => {
 
   const cards = [
     {
-      label: "Annual Net",
+      label: "Netto annuale",
       value: formatEUR(breakdown.annualNet),
       icon: Wallet,
       accent: "text-primary",
     },
     {
-      label: "Monthly Net",
+      label: `Netto medio mensile su ${breakdown.paymentPeriods} mensilità`,
       value: formatEUR(breakdown.monthlyNet),
       icon: TrendingUp,
       accent: "text-primary",
     },
     {
-      label: "Total Deductions",
+      label: "Totale trattenute",
       value: formatEUR(breakdown.totalDeductions),
       icon: TrendingDown,
       accent: "text-red-400",
     },
     {
-      label: "Net Percentage",
+      label: "Percentuale netto",
       value: `${breakdown.netPercentage}%`,
       icon: Percent,
       accent: "text-highlight",

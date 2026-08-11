@@ -77,7 +77,7 @@ export const Footer = () => {
               className='text-sm text-muted-foreground hover:text-primary transition-colors duration-300 inline-flex items-center gap-1.5'
             >
               <Calculator className='w-3.5 h-3.5' aria-hidden='true' />
-              Jet HR Calculator
+              Calcolatore RAL
             </Link>
           </nav>
 

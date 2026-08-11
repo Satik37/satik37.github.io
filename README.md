@@ -162,15 +162,23 @@ The portfolio includes a product prototype: an annual net salary calculator for 
   - 15,000-28,000 EUR: 1,910 + 1,190 * (28,000 - income) / 13,000
   - 28,000-50,000 EUR: 1,910 * (50,000 - income) / 22,000
   - above 50,000 EUR: 0
+- **Additional employment income deduction (25,000-35,000 EUR bracket)**: fixed 65 EUR when taxable income is > 25,000 and <= 35,000 EUR. This is an additional employment income deduction provided by the legislation (not a family allowance, not an INPS credit)
 - **Regional surcharge (Lombardia)**: progressive single rate applied to the WHOLE taxable income, based on the bracket (marginal rates of previous brackets are NOT summed) — 1.23% / 1.58% / 1.72% / 1.73%
 - **Municipal surcharge (Milano)**: 0.8%, exempt up to 23,000 EUR; above the threshold the 0.8% applies to the whole income (no franchise)
-- **Monthly net**: annual net divided by 13 (annualized monthly average)
+- **Monthly net**: annual net divided by the selected payment periods (12, 13 or 14; default 13) — annualized monthly average
 
 ### Reconciliation
 
 ```
 net annual = RAL - INPS - net IRPEF - regional surcharge - municipal surcharge
 ```
+
+### Note on differences vs Jet HR or other calculators
+
+- Our net annual INCLUDES the regional (Lombardia) and municipal (Milano) surcharges.
+- Other calculators (e.g. Jet HR) may use different assumptions or may not include the surcharges in the final net shown, so the result can differ.
+- We do NOT modify the standard IRPEF formula (23% / 33% / 43%) just to replicate a different gross IRPEF value (e.g. Jet HR's 6,677.76 EUR for a 30,000 EUR RAL) without an official regulatory source.
+- The surcharges applied are the official 2026 Lombardia progressive rates and the Milano 0.8% with a 23,000 EUR exemption threshold.
 
 ### Excluded in this version (documented limitations)
 

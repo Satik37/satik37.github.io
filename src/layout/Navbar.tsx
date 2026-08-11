@@ -106,11 +106,11 @@ export const Navbar = () => {
           <Link
             to='/jet-hr-salary-calculator'
             className='inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-300'
-            aria-label='Open Jet HR salary calculator'
-            title='Jet HR Salary Calculator'
+            aria-label='Apri il calcolatore RAL'
+            title='Calcolatore RAL'
           >
             <Calculator className='w-4 h-4' aria-hidden='true' />
-            Salary Calculator
+            Calcolatore RAL
           </Link>
           <a
             href='#contact'
@@ -180,6 +180,14 @@ export const Navbar = () => {
               </a>
             );
           })}
+
+          <Link
+            to='/jet-hr-salary-calculator'
+            onClick={() => setIsMobileMenuOpen(false)}
+            className='text-lg py-2 transition-colors text-muted-foreground hover:text-primary'
+          >
+            Calcolatore RAL
+          </Link>
 
           <a
             href='#contact'

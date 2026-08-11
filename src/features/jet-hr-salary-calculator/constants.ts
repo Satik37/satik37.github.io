@@ -26,6 +26,14 @@ export const EMPLOYMENT_DEDUCTION_ADDITIONAL_15000_28000 = 1190;
 // Minimum guaranteed deduction for income <= 15,000 EUR
 export const EMPLOYMENT_DEDUCTION_MIN = 690;
 
+// Additional employment income deduction (25,000-35,000 EUR bracket)
+// Fixed amount of 65 EUR when total income is > 25,000 and <= 35,000 EUR.
+// This is an additional employment income deduction provided by the
+// legislation (not a family allowance, not an INPS credit).
+export const ADDITIONAL_EMPLOYMENT_DEDUCTION_AMOUNT = 65;
+export const ADDITIONAL_EMPLOYMENT_DEDUCTION_MIN_INCOME = 25000;
+export const ADDITIONAL_EMPLOYMENT_DEDUCTION_MAX_INCOME = 35000;
+
 // Addizionale regionale Lombardia (2026) - progressive
 // A single rate is applied to the whole taxable income based on the bracket
 // (NOT the sum of marginal rates across brackets).
@@ -40,10 +48,11 @@ export const REGIONAL_SURCHARGE_BRACKETS = [
 export const MUNICIPAL_SURCHARGE_RATE = 0.008;   // 0.8%
 export const MUNICIPAL_SURCHARGE_EXEMPTION = 23000; // exempt up to 23,000 EUR
 
-// Payroll periods: 13 monthly payments (mensilità)
-// The RAL is annual and already includes the 13th month.
-// Monthly net is the annual net divided by 13 (annualized monthly average).
-export const MONTHS_PER_YEAR = 13;
+// Payroll periods (mensilità): selectable 12, 13 or 14.
+// The RAL is always annual and already includes the 13th month.
+// Monthly net is the annual net divided by the selected number of periods.
+export const PAYMENT_PERIOD_OPTIONS = [12, 13, 14] as const;
+export const DEFAULT_PAYMENT_PERIODS = 13;
 
 // Supported RAL range (scope limit of the prototype, not a general fiscal limit)
 export const MIN_RAL = 15000;

@@ -1,6 +1,6 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { calculateSalary } from "../domain/calculateSalary";
-import { MIN_RAL, MAX_RAL } from "../constants";
+import { MIN_RAL, MAX_RAL, DEFAULT_PAYMENT_PERIODS } from "../constants";
 import type { CalculationResult, SalaryInput } from "../types";
 
 // Parse an Italian-style numeric input:
@@ -42,43 +42,73 @@ function parseSalaryInput(raw: string): number | null {
 
 export function useSalaryCalculator() {
   const [annualGross, setAnnualGross] = useState<string>("");
+  const [paymentPeriods, setPaymentPeriods] = useState<number>(DEFAULT_PAYMENT_PERIODS);
   const [result, setResult] = useState<CalculationResult | null>(null);
   const [isCalculated, setIsCalculated] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Remembers the last (salary, periods) combination that produced the current result,
+  // used to avoid recursive recalculation when the payment periods change.
+  const lastCalculated = useRef<{ salary: number; periods: number } | null>(null);
+
+  // Auto-recalculate the monthly net when the user changes the payment periods
+  // AFTER a valid calculation already exists. The annual net stays unchanged.
+  // If no result exists yet, only the period state is updated (no incomplete calc).
+  useEffect(() => {
+    if (!result) return;
+
+    const salary = result.input.annualGrossSalary;
+    if (
+      lastCalculated.current?.salary === salary &&
+      lastCalculated.current?.periods === paymentPeriods
+    ) {
+      return;
+    }
+
+    lastCalculated.current = { salary, periods: paymentPeriods };
+    setResult(calculateSalary({ annualGrossSalary: salary, paymentPeriods }));
+  }, [paymentPeriods, result]);
+
   const handleCalculate = useCallback(() => {
     const salary = parseSalaryInput(annualGross);
     if (salary === null) {
-      setError("Please enter a valid annual gross salary.");
+      setError("Inserisci una RAL valida.");
       setResult(null);
       setIsCalculated(false);
+      lastCalculated.current = null;
       return;
     }
 
     if (salary < MIN_RAL || salary > MAX_RAL) {
       setError(
-        `This calculator supports RAL between ${MIN_RAL.toLocaleString("it-IT")} and ${MAX_RAL.toLocaleString("it-IT")} EUR (scope limit of the prototype).`
+        `Questo calcolatore supporta RAL tra ${MIN_RAL.toLocaleString("it-IT")} e ${MAX_RAL.toLocaleString("it-IT")} € (limite di scopo del prototipo).`
       );
       setResult(null);
       setIsCalculated(false);
+      lastCalculated.current = null;
       return;
     }
 
+    lastCalculated.current = { salary, periods: paymentPeriods };
     setError(null);
-    setResult(calculateSalary({ annualGrossSalary: salary }));
+    setResult(calculateSalary({ annualGrossSalary: salary, paymentPeriods }));
     setIsCalculated(true);
-  }, [annualGross]);
+  }, [annualGross, paymentPeriods]);
 
   const handleReset = useCallback(() => {
     setAnnualGross("");
+    setPaymentPeriods(DEFAULT_PAYMENT_PERIODS);
     setResult(null);
     setIsCalculated(false);
     setError(null);
+    lastCalculated.current = null;
   }, []);
 
   return {
     annualGross,
     setAnnualGross,
+    paymentPeriods,
+    setPaymentPeriods,
     result,
     isCalculated,
     error,
