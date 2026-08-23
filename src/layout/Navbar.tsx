@@ -33,7 +33,7 @@ export const Navbar = () => {
   const [activeSection, setActiveSection] = useState(() => getActiveSection());
   const location = useLocation();
   const navigate = useNavigate();
-  const isCalculatorPage = location.pathname === '/jet-hr-salary-calculator';
+  const isCalculatorPage = location.pathname === '/salary-calculator';
 
   const handleScroll = useCallback(() => {
     if (!isCalculatorPage) {
@@ -104,7 +104,7 @@ export const Navbar = () => {
         {/* CTA Button */}
         <div className='hidden md:flex items-center gap-4'>
           <Link
-            to='/jet-hr-salary-calculator'
+            to='/salary-calculator'
             className='inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-300'
             aria-label='Apri il calcolatore RAL'
             title='Calcolatore RAL'
@@ -182,7 +182,7 @@ export const Navbar = () => {
           })}
 
           <Link
-            to='/jet-hr-salary-calculator'
+            to='/salary-calculator'
             onClick={() => setIsMobileMenuOpen(false)}
             className='text-lg py-2 transition-colors text-muted-foreground hover:text-primary'
           >

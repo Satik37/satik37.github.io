@@ -1,11 +1,11 @@
 import { ArrowLeft } from "lucide-react";
-import { useSalaryCalculator } from "../features/jet-hr-salary-calculator/hooks/useSalaryCalculator";
-import { SalaryForm } from "../features/jet-hr-salary-calculator/components/SalaryForm";
-import { ResultSummary } from "../features/jet-hr-salary-calculator/components/ResultSummary";
-import { CalculationBreakdown } from "../features/jet-hr-salary-calculator/components/CalculationBreakdown";
-import { AssumptionsPanel } from "../features/jet-hr-salary-calculator/components/AssumptionsPanel";
+import { useSalaryCalculator } from "../features/net-salary-calculator/hooks/useSalaryCalculator";
+import { SalaryForm } from "../features/net-salary-calculator/components/SalaryForm";
+import { ResultSummary } from "../features/net-salary-calculator/components/ResultSummary";
+import { CalculationBreakdown } from "../features/net-salary-calculator/components/CalculationBreakdown";
+import { AssumptionsPanel } from "../features/net-salary-calculator/components/AssumptionsPanel";
 
-export const JetHrSalaryCalculatorPage = () => {
+export const NetSalaryCalculatorPage = () => {
   const {
     annualGross,
     setAnnualGross,
@@ -35,13 +35,13 @@ export const JetHrSalaryCalculatorPage = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
-              Jet HR · Prototipo
+              Calcolatore RAL
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
               Calcolatore dello stipendio netto da RAL
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Inserisci la tua Retribuzione Annua Lorda (RAL) e ottieni il netto annuale e il netto medio mensile, con il dettaglio di ogni trattenuta e detrazione.
+              Stima il tuo stipendio netto annuale e mensile partendo dalla RAL.
             </p>
           </div>
 

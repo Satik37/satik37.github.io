@@ -12,7 +12,7 @@ export const Footer = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const isCalculatorPage = location.pathname === '/jet-hr-salary-calculator';
+  const isCalculatorPage = location.pathname === '/salary-calculator';
 
   const handleScroll = useCallback(() => {
     setShowBackToTop(window.scrollY > 400);
@@ -73,7 +73,7 @@ export const Footer = () => {
               </a>
             ))}
             <Link
-              to='/jet-hr-salary-calculator'
+              to='/salary-calculator'
               className='text-sm text-muted-foreground hover:text-primary transition-colors duration-300 inline-flex items-center gap-1.5'
             >
               <Calculator className='w-3.5 h-3.5' aria-hidden='true' />

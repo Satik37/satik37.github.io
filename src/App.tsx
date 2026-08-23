@@ -7,7 +7,7 @@ import { Experience } from "@/sections/Experience";
 import { Interests } from "@/sections/Interests";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/layout/Footer";
-import { JetHrSalaryCalculatorPage } from "@/pages/JetHrSalaryCalculatorPage";
+import { NetSalaryCalculatorPage } from "@/pages/NetSalaryCalculatorPage";
 
 function HomePage() {
   return (
@@ -31,7 +31,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/jet-hr-salary-calculator" element={<JetHrSalaryCalculatorPage />} />
+        <Route path="/salary-calculator" element={<NetSalaryCalculatorPage />} />
       </Routes>
     </HashRouter>
   );

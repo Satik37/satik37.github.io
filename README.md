@@ -136,9 +136,9 @@ npm run format
 npm run build
 ```
 
-## Jet HR Annual Net Salary Calculator
+## Calcolatore dello stipendio netto da RAL
 
-The portfolio includes a product prototype: an annual net salary calculator for a standard Italian employee profile.
+The portfolio includes a prototype: a net salary calculator from RAL (Retribuzione Annua Lorda) for a standard Italian employee profile.
 
 ### Profile
 
@@ -173,12 +173,12 @@ The portfolio includes a product prototype: an annual net salary calculator for 
 net annual = RAL - INPS - net IRPEF - regional surcharge - municipal surcharge
 ```
 
-### Note on differences vs Jet HR or other calculators
+### Note on differences vs other calculators
 
 - Our net annual INCLUDES the regional (Lombardia) and municipal (Milano) surcharges.
-- Other calculators (e.g. Jet HR) may use different assumptions or may not include the surcharges in the final net shown, so the result can differ.
-- We do NOT modify the standard IRPEF formula (23% / 33% / 43%) just to replicate a different gross IRPEF value (e.g. Jet HR's 6,677.76 EUR for a 30,000 EUR RAL) without an official regulatory source.
-- The surcharges applied are the official 2026 Lombardia progressive rates and the Milano 0.8% with a 23,000 EUR exemption threshold.
+- Other calculators online or reference tools may use different assumptions or may not include the surcharges in the final net shown, so the result can differ.
+- We do NOT modify the standard IRPEF formula (23% / 33% / 43%) just to replicate a different gross IRPEF value (e.g. 6,677.76 EUR for a 30,000 EUR RAL) without an official regulatory source.
+- The surcharges applied are consulted in the official 2026 Lombardia regional rates and the Milano 0.8% with a 23,000 EUR exemption threshold.
 
 ### Excluded in this version (documented limitations)
 
