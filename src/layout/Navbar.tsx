@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, type MouseEvent } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, Calculator } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { navLinks } from '@/constants';
 
 // Sections to track for scroll-spy: nav links + home + contact
@@ -60,6 +60,15 @@ export const Navbar = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    setIsMobileMenuOpen(false);
+    if (location.pathname === '/') {
+      // Already on the home page: scroll back to the top
+      window.scrollTo(0, 0);
+    }
+    // Otherwise the Link navigates to '/' and ScrollToTop handles the scroll
+  };
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-800 ${
       isScrolled || isCalculatorPage ? 'glass-navbar py-3' : 'bg-transparent py-5'
@@ -70,7 +79,7 @@ export const Navbar = () => {
       >
         <Link
           to='/'
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={handleLogoClick}
           className='text-xl font-bold tracking-tight hover:text-primary transition-colors'
         >
           Satik37<span className='text-primary'>.</span>
@@ -103,15 +112,6 @@ export const Navbar = () => {
 
         {/* CTA Button */}
         <div className='hidden md:flex items-center gap-4'>
-          <Link
-            to='/salary-calculator'
-            className='inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-300'
-            aria-label='Apri il calcolatore RAL'
-            title='Calcolatore RAL'
-          >
-            <Calculator className='w-4 h-4' aria-hidden='true' />
-            Calcolatore RAL
-          </Link>
           <a
             href='#contact'
             onClick={(e) => handleNavClick(e, 'contact')}

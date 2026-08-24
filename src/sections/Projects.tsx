@@ -36,7 +36,7 @@ const projects: Project[] = [
     image: '/projects/project3.jpg',
     tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
     link: '/salary-calculator',
-    github: 'https://github.com/Satik37/satik37',
+    github: 'https://github.com/Satik37/satik37.github.io',
     internal: true,
   },
 ];
@@ -71,10 +71,14 @@ export const Projects = () => {
 
         {/* Projects grid */}
         <div className='grid md:grid-cols-2 gap-8'>
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            const isLastOdd = index === projects.length - 1 && projects.length % 2 === 1;
+            return (
             <div
               key={project.title}
-              className='group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1'
+              className={`group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1 ${
+                isLastOdd ? 'md:col-span-2 md:justify-self-center md:max-w-[calc(50%-1rem)]' : ''
+              }`}
               style={{ animationDelay: `${(index + 1) * 100}ms` }}
             >
               {/* Project image */}
@@ -165,7 +169,8 @@ export const Projects = () => {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* View all CTA */}

@@ -39,6 +39,14 @@ export const Footer = () => {
     }
   };
 
+  const handleLogoClick = () => {
+    if (location.pathname === '/') {
+      // Already on the home page: scroll back to the top
+      window.scrollTo(0, 0);
+    }
+    // Otherwise the Link navigates to '/' and ScrollToTop handles the scroll
+  };
+
   return (
     <footer className='py-12 border-t border-border relative'>
       <div className='container mx-auto px-6'>
@@ -48,6 +56,7 @@ export const Footer = () => {
           <div className='text-center md:text-left'>
             <Link
               to='/'
+              onClick={handleLogoClick}
               className='text-xl font-bold tracking-tight transition-colors duration-300 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 rounded-md'
             >
               Satik37<span className='text-primary'>.</span>
