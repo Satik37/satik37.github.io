@@ -1,5 +1,6 @@
 import { CircleFadingArrowUp, ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
 
 interface Project {
@@ -9,6 +10,7 @@ interface Project {
   tags: string[];
   link: string;
   github: string;
+  internal?: boolean;
 }
 
 const projects: Project[] = [
@@ -27,6 +29,15 @@ const projects: Project[] = [
     tags: ['React', 'Tailwind CSS', 'Vite', 'GitHub Actions'],
     link: 'https://satik37.github.io',
     github: 'https://github.com/Satik37/satik37.github.io',
+  },
+  {
+    title: 'Calcolatore RAL',
+    description: 'Strumento web per stimare il netto annuale e il netto medio mensile partendo dalla Retribuzione Annua Lorda.',
+    image: '/projects/project3.jpg',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    link: '/salary-calculator',
+    github: 'https://github.com/Satik37/satik37',
+    internal: true,
   },
 ];
 
@@ -62,7 +73,7 @@ export const Projects = () => {
         <div className='grid md:grid-cols-2 gap-8'>
           {projects.map((project, index) => (
             <div
-              key={index}
+              key={project.title}
               className='group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1'
               style={{ animationDelay: `${(index + 1) * 100}ms` }}
             >
@@ -78,16 +89,27 @@ export const Projects = () => {
                 <div className='absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-60' />
                 {/* Overlay links */}
                 <div className='absolute inset-0 flex items-center justify-center gap-4 bg-background/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500'>
-                  <a
-                    href={project.link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
-                    aria-label={`Open ${project.title} live project`}
-                    title='Live'
-                  >
-                    <CircleFadingArrowUp className='w-6 h-6' />
-                  </a>
+                  {project.internal ? (
+                    <Link
+                      to={project.link}
+                      className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
+                      aria-label={`Apri ${project.title}`}
+                      title='Apri'
+                    >
+                      <CircleFadingArrowUp className='w-6 h-6' />
+                    </Link>
+                  ) : (
+                    <a
+                      href={project.link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all'
+                      aria-label={`Open ${project.title} live project`}
+                      title='Live'
+                    >
+                      <CircleFadingArrowUp className='w-6 h-6' />
+                    </a>
+                  )}
                   <a
                     href={project.github}
                     target='_blank'
@@ -105,7 +127,11 @@ export const Projects = () => {
               <div className='p-6 space-y-4'>
                 <div className='flex items-start justify-between'>
                   <h3 className='text-xl font-semibold group-hover:text-primary transition-colors'>
-                    {project.title}
+                    {project.internal ? (
+                      <Link to={project.link} className='group-hover:text-primary'>{project.title}</Link>
+                    ) : (
+                      project.title
+                    )}
                   </h3>
                   <a
                     href={project.github}

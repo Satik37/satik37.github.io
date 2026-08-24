@@ -1,4 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { Navbar } from "@/layout/Navbar";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
@@ -29,6 +30,7 @@ function HomePage() {
 function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/salary-calculator" element={<NetSalaryCalculatorPage />} />
