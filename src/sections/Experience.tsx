@@ -8,6 +8,14 @@ interface ExperienceItem {
 }
 
 const experiences: ExperienceItem[] = [
+    {
+    period: '2025 - Present',
+    role: 'Independent Software Developer',
+    company: 'Personal Projects',
+    description: 'I use independent projects as a place to follow ideas all the way through: from a rough problem to something people can actually use. I am building practical web tools, testing AI-agent workflows, and working on a private assistant-style product designed to make planning, context, and everyday decisions feel less mechanical.',
+    technologies: ['TypeScript', 'React', 'Tailwind CSS', 'Next.js', 'Three.js', 'Vite', 'Vue.js', 'Node.js', 'Flutter', 'React Native', 'LLM APIs', 'Tool Calling', 'Agent Workflows', 'Git'],
+    current: true,
+  },
   {
     period: '2024 - 2025',
     role: 'Full-Stack Software Developer',
