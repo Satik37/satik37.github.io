@@ -278,3 +278,29 @@
     scroll-behavior: auto !important;
   }
 }
+/* =========================================================================
+   Fallback Firefox — overlay della Hero (SOLO Hero)
+   Riproduce in sRGB l'interpolazione del gradiente dell'overlay Hero per i
+   browser che NON supportano la clausola `linear-gradient(in <color-space>,
+   ...)` (es. Firefox). In Chrome/Chromium il `@supports` sopra risulta falso,
+   quindi questo blocco resta inattivo e il design di riferimento non cambia.
+
+   Geometria originale mantenuta (via al centro, default di Tailwind):
+     inizio  = background al 20%  -> rgba(15, 20, 24, 0.20)
+     centro  = background all'80% -> rgba(15, 20, 24, 0.80)
+     fine    = background pieno   -> rgb(15, 20, 24)
+   Nessun valore arbitrario introdotto: solo stop espliciti sRGB equivalenti.
+
+   Selettore basato sulle utility Tailwind: combinazione univoca dell'overlay
+   Hero. Non-layered -> vince sulla cascata delle @layer utilities Tailwind.
+   ========================================================================= */
+@supports not (background-image: linear-gradient(in lab, red, blue)) {
+  .bg-linear-to-b.from-background\/20.via-background\/80.to-background {
+    background-image: linear-gradient(
+      to bottom,
+      rgba(15, 20, 24, 0.20) 0%,
+      rgba(15, 20, 24, 0.80) 50%,
+      rgb(15, 20, 24) 100%
+    );
+  }
+}
